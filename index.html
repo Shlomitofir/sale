@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"></head><body>
+<meta charset="utf-8">
+<title>גלי את ההנחה</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<script>document.documentElement.dir='rtl';document.documentElement.lang='he'</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Heebo:wght@300;400;500;700&display=swap">
+<style>
+/* Layout: one phone column on white (Shlomit Ofir). The guess takes over the whole screen as four ShoppingIL color fields;
+   on a tap they shatter into tiles that shuffle across the screen and fly off to reveal the jewel and its discount. */
+:root{
+  --paper:#ffffff; --sand:#eeeae6; --sand2:#d4c5b3; --taupe:#74665a; --ink:#1c1c1c; --ink2:#4d4d4d; --line:#e2dbd3;
+  --g-blue:#4285f4; --g-red:#ea4335; --g-yellow:#fbbc04; --g-green:#34a853;
+  --latin:'Tenor Sans','Times New Roman',serif;
+  --he:'Heebo','Arial Hebrew',Arial,sans-serif;
+  color-scheme:light;
+}
+[hidden]{display:none!important}
+html{direction:rtl;height:100%;background:var(--paper)}
+body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font-family:var(--he);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
+*{box-sizing:border-box}
+button{font-family:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--g-blue);outline-offset:2px}
+.num{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+bdi{unicode-bidi:isolate}
+.app{max-width:440px;margin:0 auto;padding-block:14px 110px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* lockup */
+.lock{display:flex;justify-content:center;padding:10px 0 16px;border-bottom:1px solid var(--ink)}
+.lock .so{height:auto;width:min(78%,300px)}
+.so{height:24px;width:auto;display:block;flex:none}
+/* ShoppingIL appears as a small participant mark, never next to our wordmark at equal size */
+.sil{display:inline-block;height:22px;width:80px;background:url(img/shoppingil.png) no-repeat;background-size:135.4px auto;background-position:-28.2px -8.5px;flex:none;vertical-align:middle}
+
+/* home */
+.hero{padding:24px 0 18px}
+.ev{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2)}
+.ev .dots{display:inline-flex;gap:3px}.ev .dots i{width:6px;height:6px;display:block}
+.hero h1{font-weight:300;font-size:36px;line-height:1.1;margin:14px 0 0;text-wrap:balance}
+.hero h1 b{font-weight:500;display:block}
+.hero .lead{margin:16px 0 0;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:11px 16px 12px;font-size:min(18px,4.6vw);line-height:1.3;font-weight:400}
+.hero .lead svg{width:13px;height:13px;fill:#fff;flex:none}
+.hero .lead strong{font-weight:400}
+.find{position:relative;margin-top:18px}
+.find input{width:100%;font:inherit;font-size:18px;padding:15px 48px 15px 16px;border:1px solid var(--ink);border-radius:0;background:var(--paper);color:var(--ink);-webkit-appearance:none;appearance:none}
+.find input::placeholder{color:#7d7268}
+.find svg{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:20px;height:20px}
+.hint{font-size:13px;color:var(--taupe);margin:8px 0 0}
+.res{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-top:0}
+.res button{width:100%;display:flex;align-items:center;gap:12px;background:var(--paper);border:0;border-top:1px solid var(--line);padding:8px 10px;text-align:right}
+.res img{width:48px;height:48px;object-fit:cover;flex:none;background:var(--sand)}
+.res .t{display:flex;flex-direction:column;min-width:0}
+.res small{color:var(--taupe);font-size:13px}
+.shelf{margin-top:26px}
+.shelf h2{font-size:14px;font-weight:500;color:var(--taupe);margin:0 0 10px}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.strip button{border:0;background:none;padding:0;text-align:right;display:flex;flex-direction:column;gap:5px;font-size:13px;line-height:1.25;min-width:0}
+.strip .ph{position:relative;aspect-ratio:1;background:var(--sand);overflow:hidden}
+.strip img{width:100%;height:100%;object-fit:contain;display:block}
+.strip .ph{background:#f4f2ef}
+.strip .q{position:absolute;inset:auto auto 0 0;width:24px;height:24px;display:grid;place-items:center;background:var(--ink)}
+.strip .q svg{width:11px;height:11px;fill:#fff}
+.demo{margin:26px 0 0;font-size:13px;color:var(--taupe);text-align:center}
+
+/* result: one phone screen, no scrolling. The photo takes whatever height is left. */
+.app.inres{padding-bottom:0}
+#item{display:flex;flex-direction:column;height:calc(100vh - 26px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - var(--bagH,0px));height:calc(100dvh - 26px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - var(--bagH,0px))}
+#item>*{flex:none}
+#item>.stage{flex:1 1 auto;min-height:110px;aspect-ratio:auto}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.top .so{height:auto;width:min(46%,170px)}
+.back{border:0;background:none;padding:8px 0;min-height:44px;font-size:14px;color:var(--ink2);display:flex;align-items:center;gap:4px}
+.stage{position:relative;aspect-ratio:4/5;max-width:100%;background:#f4f2ef;overflow:hidden}
+.stage>#iImg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+/* the discount is a bold band across the top, above the photo (never covering the jewel) */
+.badge{position:relative;display:flex;align-items:stretch;justify-content:space-between;background:var(--ink);color:#fff;margin-bottom:6px;opacity:0;transform:translateY(-14px) scaleY(.6);transform-origin:top}
+.badge .bp{display:flex;align-items:baseline;gap:10px;padding:12px 16px 10px}
+.badge .p{font-family:var(--latin);font-size:min(52px,13vw);line-height:.95}
+.badge small{font-size:17px}
+.badge .bp svg{width:14px;height:14px;fill:#fff;align-self:flex-start;margin-top:4px}
+/* ShoppingIL mark sits on a white block inside the band, so its colors stay true on the black */
+.badge .silband{background:#fff;display:flex;align-items:center;justify-content:center;padding:0 12px;margin:4px;flex:none}
+.badge .silband .sil{height:26px;width:94px;background-size:160px auto;background-position:-33.3px -10px}
+.badge.in{animation:drop .55s cubic-bezier(.2,1.5,.4,1) forwards}
+@keyframes drop{0%{opacity:0;transform:translateY(-14px) scaleY(.6)}100%{opacity:1;transform:none}}
+.meta{padding:8px 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.meta h1{margin:0;font-weight:400;font-size:22px;line-height:1.2;min-width:0}
+.meta .sku{display:block;font-size:13px;color:var(--taupe);margin-top:2px}
+.price{text-align:left;white-space:nowrap}
+.price s{display:block;color:var(--taupe);font-size:17px;text-decoration:line-through;text-decoration-color:#ea4335;text-decoration-thickness:2px}
+.price b{font-family:var(--he);font-weight:700;font-size:34px;line-height:1.05}
+.done{margin-top:8px;display:flex;flex-direction:column;gap:8px}
+.done .btn{padding-block:13px}
+.badge .bp{min-width:0}
+@media (max-width:370px){.badge .silband{padding:0 8px}.badge .silband .sil{height:20px;width:72px;background-size:123px auto;background-position:-25.6px -7.7px}.badge .bp{gap:6px;padding-inline:12px}}
+@media (max-height:640px){.verdict p{display:none}.meta h1{font-size:19px}.price b{font-size:28px}.badge .bp{padding:8px 14px 6px}.badge .p{font-size:40px}}
+.verdict{display:flex;gap:10px;align-items:flex-start}
+.verdict svg{width:18px;height:18px;flex:none;margin-top:5px}
+.verdict h2{margin:0;font-size:20px;font-weight:500;line-height:1.25}
+.verdict p{margin:2px 0 0;color:var(--ink2);font-size:15px}
+.acts{display:grid;grid-template-columns:1fr auto;gap:8px}
+.btn{border:1px solid var(--ink);background:var(--ink);color:#fff;padding:15px 12px;font-size:16px;font-weight:500;border-radius:0}
+.btn.line{background:var(--paper);color:var(--ink);display:flex;align-items:center;gap:6px;padding-inline:16px}
+.btn.line[aria-pressed=true]{background:var(--sand)}
+.btn.line svg{width:14px;height:14px}
+.wa{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:11px 12px;font-size:15px;text-decoration:none}
+.wa svg{width:20px;height:20px;flex:none}
+.wa{white-space:nowrap;font-size:min(15px,4.1vw)}
+.link{display:block;margin:4px auto 0;padding:12px 8px;border:0;background:none;font-size:14px;color:var(--taupe);text-decoration:underline;text-underline-offset:3px}
+
+/* full-screen guess */
+.play{position:fixed;inset:0;z-index:40;background:var(--paper);touch-action:manipulation}
+.q-main{position:absolute;inset:0;display:flex;flex-direction:column;background:var(--paper)}
+.q-head{flex:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:calc(8px + env(safe-area-inset-top,0px));padding-bottom:8px;padding-left:max(14px,env(safe-area-inset-left,0px));padding-right:max(10px,env(safe-area-inset-right,0px))}
+.q-head .q-so{width:min(150px,38vw);height:auto;display:block}
+.q-head .chip{border:1px solid var(--line)}
+/* the jewel is never cropped: it sits whole (contain) on a soft blur of its own photo */
+.q-photo{position:relative;flex:1 1 auto;min-height:0;background:#f4f2ef;overflow:hidden}
+.blur{position:absolute;inset:-24px;width:calc(100% + 48px);height:calc(100% + 48px);object-fit:cover;filter:blur(22px);opacity:.55;transform:scale(1.1)}
+.q-photo #qImg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.q-ask{flex:none;text-align:center;padding:12px 16px 10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.q-ask .q-sil{display:block;margin:0 auto 6px}
+.q-ask .nm{display:block;font-size:14px;color:var(--taupe);letter-spacing:.01em}
+.q-ask h2{margin:4px 0 0;font-weight:300;font-size:min(40px,10vw);line-height:1.05;text-wrap:balance}
+.q-ask h2 b{font-weight:500}
+.quads{flex:none;height:min(30vh,300px);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;background:var(--paper);padding:0 4px 4px;padding-bottom:calc(4px + env(safe-area-inset-bottom,0px))}
+.quads button{border:0;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:var(--latin);font-size:min(46px,11vw);line-height:1;min-width:0;overflow:hidden;transition:transform .18s,filter .18s}
+.quads button:nth-child(3){color:var(--ink)}
+.quads button small{font-family:var(--he);font-size:13px;opacity:.9}
+.quads button:active{filter:brightness(.92)}
+.quads.chose button{transform:scale(.94);filter:saturate(.6) brightness(1.1)}
+.quads.chose button.pick{transform:scale(1.03);filter:none;z-index:1}
+.q-skip{border:0;background:none;padding:8px 6px 0;min-height:32px;font-size:13px;color:var(--taupe);text-decoration:underline;text-underline-offset:3px}
+.q-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding-top:calc(10px + env(safe-area-inset-top,0px));padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));z-index:2;pointer-events:none}
+.q-top>*{pointer-events:auto}
+.chip{background:var(--paper);border:0;padding:8px 12px;font-size:14px;min-height:40px;display:flex;align-items:center;gap:6px}
+.shatter{position:absolute;inset:0;display:grid;gap:3px;background:var(--paper)}
+.shatter i{display:grid;place-items:center;transition:transform .55s cubic-bezier(.5,0,.75,0),opacity .55s;will-change:transform}
+.shatter i svg{width:38%;height:38%;fill:#fff}
+.shatter i.lt svg{fill:var(--ink)}
+.shatter i.out{transform:scale(0) rotate(90deg);opacity:0}
+.play.clear{background:transparent}.play.clear .shatter{background:transparent}
+
+/* bag */
+.bag{position:fixed;left:0;right:0;bottom:0;padding-top:10px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(rgba(255,255,255,0),var(--paper) 35%);display:flex;justify-content:center;pointer-events:none;z-index:5}
+.bag button{pointer-events:auto;width:100%;max-width:408px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--ink);padding:12px 16px;font-size:15px}
+.bag .sq{display:inline-flex;gap:3px;margin-left:8px}.bag .sq i{width:6px;height:6px;display:block}
+.bag b{font-weight:500}
+.sheet{position:fixed;inset:0;background:rgba(28,28,28,.45);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.sheet .in{width:100%;max-width:440px;max-height:88%;overflow:auto;background:var(--paper);padding-top:20px;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:12px;border-top:4px solid;border-image:linear-gradient(90deg,var(--g-blue) 25%,var(--g-red) 25% 50%,var(--g-yellow) 50% 75%,var(--g-green) 75%) 1}
+.sheet h2{margin:0;font-weight:400;font-size:22px}
+.sheet .sub{margin:-8px 0 0;color:var(--taupe);font-size:14px}
+.items{list-style:none;margin:0;padding:0}
+.items li{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.items img{width:52px;height:52px;object-fit:cover;background:var(--sand)}
+.items .nm{min-width:0;font-size:15px}
+.items .nm small{display:block;color:var(--taupe);font-size:13px}
+.items .pr{text-align:left;white-space:nowrap}
+.items .pr s{display:block;color:var(--taupe);font-size:13px;text-decoration-color:#ea4335;text-decoration-thickness:2px}
+.items .pr b{font-weight:700;font-size:19px}
+.off{display:inline-block;background:var(--ink);color:#fff;font-family:var(--latin);font-size:13px;padding:0 5px;margin-inline-start:8px}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font-size:17px}
+.tot b{font-family:var(--latin);font-weight:400;font-size:24px}
+.tot.sv{color:#1e7e34;font-size:15px}
+.fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+@media (prefers-reduced-motion:reduce){.badge.in{animation:none;transform:none;opacity:1}.shatter i{transition:opacity .2s}.shatter i.out{transform:none}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <path id="spark" d="M12 0C12.7 6.8 17.2 11.3 24 12C17.2 12.7 12.7 17.2 12 24C11.3 17.2 6.8 12.7 0 12C6.8 11.3 11.3 6.8 12 0Z"/>
+</defs></svg>
+
+<div class="app">
+  <section id="home">
+    <header class="lock">
+      <img class="so" src="img/so-logo.png" alt="Shlomit Ofir">
+    </header>
+    <div class="hero">
+      <div class="ev"><span class="dots"><i style="background:var(--g-blue)"></i><i style="background:var(--g-red)"></i><i style="background:var(--g-yellow)"></i><i style="background:var(--g-green)"></i></span><span>ימי מבצעים בסניף, במסגרת</span><span class="sil" role="img" aria-label="ShoppingIL by Google"></span></div>
+      <h1>מה הסוד של <b>התכשיט שלך?</b></h1>
+      <p class="lead" id="lead"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#spark"/></svg><strong>גלי מה ההנחה על התכשיט שאהבת</strong></p>
+      <div class="find" id="find">
+        <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="טוענת מחירים…" disabled aria-label="מק״ט מהתווית, או שם התכשיט">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
+      </div>
+      <ul class="res" id="res" hidden></ul>
+      <p class="hint" id="hint">המק״ט מופיע על התווית, למשל <bdi>1347932</bdi> או <bdi>1124402-34</bdi></p>
+    </div>
+    <div class="shelf">
+      <h2 id="shelfTitle">או בחרי אותו מכאן</h2>
+      <div class="strip" id="strip"></div>
+    </div>
+    <p class="demo" id="stamp">המחיר הקובע הוא המחיר בקופה</p>
+  </section>
+
+  <section id="item" hidden>
+    <div class="top">
+      <button class="back" id="back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>תכשיט אחר</button>
+      <img class="so" src="img/so-logo.png" alt="Shlomit Ofir">
+    </div>
+    <div class="badge" id="badge"><span class="bp"><svg viewBox="0 0 24 24"><use href="#spark"/></svg><span class="p num" id="bPct"></span><small>הנחה</small></span><span class="silband"><span class="sil" role="img" aria-label="ShoppingIL by Google"></span></span></div>
+    <div class="stage">
+      <img class="blur" id="iBg" alt="">
+      <img id="iImg" alt="">
+    </div>
+    <div class="meta">
+      <h1><span id="iName"></span><span class="sku">מק״ט <bdi id="iSku"></bdi></span></h1>
+      <div class="price"><s class="num" id="iWas"></s><b class="num" id="iNow"></b></div>
+    </div>
+    <div class="done">
+      <div class="verdict"><svg viewBox="0 0 24 24"><use href="#spark"/></svg><div><h2 id="vT"></h2><p id="vP"></p></div></div>
+      <div class="acts">
+        <button class="btn" id="next">לתכשיט הבא</button>
+        <button class="btn line" id="keep" aria-pressed="false"><svg viewBox="0 0 24 24"><use href="#spark"/></svg><span id="keepT">שמרי</span></button>
+      </div>
+      <a class="wa" id="wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path fill="#fff" d="M17.3 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1a7.9 7.9 0 0 1-3.9-3.4c-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.4 13.4 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3z"/></svg>שתפי חברה, כי מבצעים לא שומרים בסוד</a>
+    </div>
+  </section>
+</div>
+
+<!-- full-screen guess -->
+<div class="play" id="play" hidden>
+  <div class="q-main" id="qMain">
+    <div class="q-head" id="qTop">
+      <img class="q-so" src="img/so-logo.png" alt="Shlomit Ofir">
+      <button class="chip" id="qBack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>חזרה</button>
+    </div>
+    <div class="q-photo"><img class="blur" id="qBg" alt=""><img id="qImg" alt=""></div>
+    <div class="q-ask"><span class="sil q-sil" role="img" aria-label="ShoppingIL by Google"></span><span class="nm" id="qName"></span><h2>כמה הנחה <b>מסתתרת כאן?</b></h2><button class="q-skip" id="qSkip">בלי לנחש, רק תגלו לי</button></div>
+    <div class="quads" id="quads"></div>
+  </div>
+  <div class="shatter" id="shatter" hidden></div>
+</div>
+
+<div class="bag" id="bag" hidden><button id="bagBtn"><span><span class="sq"><i style="background:var(--g-blue)"></i><i style="background:var(--g-red)"></i><i style="background:var(--g-yellow)"></i></span><b>שמרת <span class="num" id="bN"></span></b> · להציג בקופה</span><span>חסכת <b class="num" id="bS"></b></span></button></div>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="in" role="dialog" aria-modal="true" aria-labelledby="shT">
+    <h2 id="shT">התכשיטים ששמרת</h2>
+    <p class="sub">להציג למוכרת בקופה</p>
+    <ul class="items" id="items"></ul>
+    <div class="tot"><span>לתשלום</span><b class="num" id="tP"></b></div>
+    <div class="tot sv"><span>חסכת במבצע</span><span class="num" id="tS"></span></div>
+    <button class="btn" id="shClose">סגירה</button>
+    <button class="link" id="shClear">לנקות את הרשימה</button>
+  </div>
+</div>
+<canvas class="fx" id="fx"></canvas>
+
+<script>
+fetch('data.json').then(r=>{if(!r.ok)throw new Error('data '+r.status);return r.json();}).then(function(DATA){
+const $=id=>document.getElementById(id);
+const nis=n=>'₪'+(Math.round(n*100)/100).toLocaleString('he-IL',{maximumFractionDigits:2});
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const G=['#4285f4','#ea4335','#fbbc04','#34a853'];
+const GUESS=[10,20,30,40];
+const DIRECT=true;
+const STANDS={earrings:'עגילים',necklaces:'שרשראות',bracelets:'צמידים',rings:'טבעות',charms:"צ'ארמס"};
+const [GC,GR]=DATA.grid;
+
+// One entry per variant SKU: the price the shopper pays at checkout, as pulled from Shopify (see build_live.py).
+const skuNorm=s=>s.toLowerCase().replace(/[^a-z0-9]/g,'');
+const ITEMS=DATA.items,BY_SKU={},VARS=[];
+ITEMS.forEach((it,n)=>{it.n=n;it.v.forEach(([sku,full,sale])=>{
+  const p={key:sku,sku,title:it.t,h:it.h,cat:it.c,it,full,sale,pct:full?Math.round((1-sale/full)*100):0,digits:sku.replace(/\D/g,''),skuN:skuNorm(sku)};
+  BY_SKU[sku]=p;VARS.push(p);});});
+const firstVar=it=>BY_SKU[it.v[0][0]];
+const norm=s=>s.replace(/[׳'"״`]/g,'').replace(/\s+/g,' ').trim();
+
+// Images come from sheets of GC x GR cells; a cell is cut out once into a blob URL and reused.
+const sheets={},cells={};
+function sheetImg(n){return sheets[n]||(sheets[n]=new Promise((ok,bad)=>{const im=new Image();im.onload=()=>ok(im);im.onerror=bad;im.src='s/'+n+'.jpg';}));}
+function cellURL(it){
+  if(cells[it.n])return cells[it.n];
+  return cells[it.n]=sheetImg(it.i[0]).then(im=>{const cw=im.naturalWidth/GC,ch=im.naturalHeight/GR,k=it.i[1];
+    const cv=document.createElement('canvas');cv.width=cw;cv.height=ch;cv.getContext('2d').drawImage(im,(k%GC)*cw,((k/GC)|0)*ch,cw,ch,0,0,cw,ch);
+    return new Promise(ok=>cv.toBlob(b=>ok(URL.createObjectURL(b)),'image/jpeg',.9));});
+}
+const BLANK='img/so-logo.png';
+function setImg(el,it){el.removeAttribute('src');if(!it.i){el.src=BLANK;el.dataset.n=it.n;return;}cellURL(it).then(u=>{if(el.dataset.n==String(it.n))el.src=u;});el.dataset.n=it.n;}
+
+let bag=[];try{bag=JSON.parse(localStorage.getItem('sil-bag-live')||'[]').filter(k=>BY_SKU[k])}catch(e){}
+const store=()=>{try{localStorage.setItem('sil-bag-live',JSON.stringify(bag))}catch(e){}};
+
+// ---- after the sale ends, the page stops showing prices ----
+const ended=Date.now()>Date.parse(DATA.endsAt);
+const pulled=new Date(DATA.pulledAt);
+$('stamp').textContent='המחיר הקובע הוא המחיר בקופה · מחירים מ-'+pulled.toLocaleDateString('he-IL',{day:'numeric',month:'numeric'})+', '+pulled.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
+if(ended){$('find').hidden=true;$('hint').hidden=true;document.querySelector('.shelf').hidden=true;$('lead').innerHTML='<strong>מבצעי ShoppingIL הסתיימו. תודה שבאת! המוכרות ישמחו לעזור עם כל תכשיט 🤍</strong>';$('q').disabled=true;}
+$('q').disabled=ended;$('q').placeholder='מק״ט או שם התכשיט';
+
+// ---- home ----
+const stand=STANDS[location.hash.slice(1)];
+// the shelf shows only jewels in stock in every store, with a photo and a discount,
+// alternating the biggest discount left with the smallest one left (high, low, high...)
+const cand=(stand?ITEMS.filter(it=>it.c===stand):ITEMS).filter(it=>it.i&&firstVar(it).pct>0);
+const inAll=cand.filter(it=>it.a);
+const pool=(inAll.length>=9?inAll:cand).sort((a,b)=>firstVar(b).pct-firstVar(a).pct);
+const shelf=[];
+for(let lo=0,hi=pool.length-1;shelf.length<9&&lo<=hi;){shelf.push(pool[lo++]);if(shelf.length<9&&lo<=hi)shelf.push(pool[hi--]);}
+if(stand)$('shelfTitle').textContent='ה'+stand+' על השולחן לידך';
+shelf.forEach(it=>{
+  const b=document.createElement('button'),p=firstVar(it);
+  b.innerHTML='<span class="ph"><img alt=""><span class="q"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#spark"/></svg></span></span><span></span>';
+  b.lastChild.textContent=it.t;setImg(b.querySelector('img'),it);
+  b.onclick=()=>open(p);$('strip').appendChild(b);
+});
+const HINT=$('hint').innerHTML;
+const resetHint=()=>{$('hint').innerHTML=HINT;$('hint').hidden=false;};
+// SKU on the tag: 7 digits, sometimes with a variant suffix of digits and letters (1347932-1, 1263093-7-S, G500181-7).
+// Typed text that is mostly digits/latin is a SKU: it matches from the start, ignoring dashes, spaces and case.
+// 7 digits without a suffix match every variant of that design.
+function search(raw){
+  const v=norm(raw),q=skuNorm(v),d=v.replace(/\D/g,'');
+  if(d.length>=3&&q.length>=v.replace(/[\s-]/g,'').length)
+    // the exact SKU goes first: 1125703-S is also the start of 1125703-S-1..S-10, and typing more can't narrow to it
+    return VARS.filter(p=>p.skuN.startsWith(q)||(/^\d+$/.test(q)&&p.digits.startsWith(q))||(q.length>7&&q.startsWith(p.skuN)))
+      .sort((a,b)=>(b.skuN===q)-(a.skuN===q));
+  const seen=new Set();
+  return ITEMS.filter(it=>norm(it.t).includes(v)).map(firstVar).filter(p=>!seen.has(p.it.n)&&seen.add(p.it.n));
+}
+$('q').addEventListener('input',e=>{
+  const v=norm(e.target.value),ul=$('res');ul.innerHTML='';
+  if(!v){ul.hidden=true;resetHint();return;}
+  const all=search(v),hits=all.slice(0,6);
+  ul.hidden=!hits.length;$('hint').hidden=!!hits.length;
+  if(!hits.length){$('hint').textContent='לא מצאנו. בדקי את המק״ט שעל התווית (7 ספרות), או נסי חלק מהשם.';return;}
+  hits.forEach(p=>{const li=document.createElement('li'),b=document.createElement('button');
+    b.innerHTML='<img alt=""><span class="t"><span></span><small><bdi></bdi> · '+nis(p.full)+'</small></span>';
+    b.querySelector('.t>span').textContent=p.title;b.querySelector('bdi').textContent=p.sku;setImg(b.querySelector('img'),p.it);
+    b.onclick=()=>open(p);li.appendChild(b);ul.appendChild(li);});
+  if(all.length>hits.length){const li=document.createElement('li');li.className='more';li.textContent='ועוד '+(all.length-hits.length)+'. המשיכי להקליד כדי לצמצם';ul.appendChild(li);}
+});
+$('q').addEventListener('keydown',e=>{if(e.key==='Enter'){const h=search(e.target.value);if(h.length===1){e.target.blur();open(h[0]);}}});
+
+// ---- full-screen guess ----
+let cur=null,busy=false;
+GUESS.forEach((n,i)=>{const b=document.createElement('button');b.style.background=G[i];
+  b.innerHTML='<span class="num">'+(n===40?'+40%':n+'%')+'</span><small>'+(n===40?'או יותר':'הנחה')+'</small>';
+  b.setAttribute('aria-label','ניחוש '+(n===40?'40 אחוז ומעלה':n+' אחוז'));b.onclick=()=>go(n,i);$('quads').appendChild(b);});
+function open(p){
+  cur=p;busy=false;
+  // result page is rendered underneath, the guess screen covers it
+  setImg($('iImg'),p.it);setImg($('iBg'),p.it);$('iName').textContent=p.title;$('iSku').textContent=p.sku||'';
+  $('iWas').textContent='';$('iNow').textContent=nis(p.full);$('badge').classList.remove('in');$('badge').hidden=!p.pct;
+  $('qName').textContent=p.title;
+  $('qMain').hidden=false;$('quads').className='quads';[...$('quads').children].forEach(b=>b.classList.remove('pick'));
+  $('qTop').hidden=false;$('shatter').hidden=true;$('play').classList.remove('clear');
+  $('home').hidden=true;$('item').hidden=false;$('play').hidden=false;document.querySelector('.app').classList.add('inres');scrollTo(0,0);
+  // no-guess version: straight to the tile reveal
+  if(DIRECT){$('qMain').hidden=true;busy=true;shatter(null,-1);}
+}
+function home(){$('play').hidden=true;$('item').hidden=true;$('home').hidden=false;document.querySelector('.app').classList.remove('inres');$('q').value='';$('res').hidden=true;resetHint();scrollTo(0,0);}
+$('qBack').onclick=$('back').onclick=$('next').onclick=home;
+$('qSkip').onclick=()=>go(null,-1);
+
+const PAL=[...G,...G,'#1a57c9','#d4c5b3','#eeeae6'];
+const LIGHT=c=>c==='#fbbc04'||c==='#d4c5b3'||c==='#eeeae6';
+const ICON=['<svg viewBox="0 0 24 24"><use href="#spark"/></svg>','<svg viewBox="0 0 24 24"><text x="12" y="19" text-anchor="middle" font-family="Tenor Sans,serif" font-size="20">%</text></svg>'];
+function paint(t,c){t.style.backgroundColor=c;t.classList.toggle('lt',LIGHT(c));}
+
+function go(guess,qi){
+  if(busy)return;busy=true;
+  const q=$('quads');q.classList.add('chose');if(qi>=0)q.children[qi].classList.add('pick');
+  buzz(12);
+  setTimeout(()=>shatter(guess,qi),reduce?0:240);
+}
+function shatter(guess,qi){
+  // the four color fields break into tiles that keep the quadrant colors, then shuffle across the screen
+  const W=innerWidth,H=innerHeight,cols=W<500?6:9,rows=Math.max(8,Math.round(cols*H/W));
+  const sh=$('shatter');sh.innerHTML='';sh.style.gridTemplateColumns='repeat('+cols+',minmax(0,1fr))';sh.style.gridTemplateRows='repeat('+rows+',minmax(0,1fr))';
+  // origin of the ripple: centre of the chosen color (RTL: column 0 is on the right)
+  let or=rows/2,oc=cols/2;
+  if(qi>=0){const b=$('quads').children[qi].getBoundingClientRect();or=(b.top+b.height/2)/H*rows;oc=(W-(b.left+b.width/2))/W*cols;}
+  const tiles=[];
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const t=document.createElement('i');paint(t,qi>=0?G[qi]:PAL[(Math.random()*PAL.length)|0]);
+    if(Math.random()<.12)t.innerHTML=ICON[(r+c)%2];
+    // the chosen color floods out from the tapped field
+    t.style.opacity=0;t.style.transition='opacity .18s';t.style.transitionDelay=(reduce?0:Math.hypot(r-or,c-oc)*22)+'ms';
+    t.dataset.r=r;t.dataset.c=c;sh.appendChild(t);tiles.push(t);}
+  sh.hidden=false;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>tiles.forEach(t=>t.style.opacity=1)));
+  setTimeout(()=>{$('qMain').hidden=true;$('qTop').hidden=true;tiles.forEach(t=>{t.style.transition='';t.style.transitionDelay='';});},reduce?0:420);
+  let n=0;const steps=reduce?0:8;
+  setTimeout(function step(){
+    if(n++<steps){tiles.forEach(t=>{if(Math.random()<.45)paint(t,PAL[(Math.random()*PAL.length)|0])});buzz(5);setTimeout(step,90);return;}
+    $('play').classList.add('clear');
+    tiles.forEach(t=>{const d=Math.hypot(t.dataset.r-or,t.dataset.c-oc);t.style.transitionDelay=(reduce?0:d*45+Math.random()*60)+'ms';t.classList.add('out');});
+    const maxD=Math.hypot(Math.max(or,rows-or),Math.max(oc,cols-oc));
+    setTimeout(()=>land(guess),reduce?60:Math.min(500,maxD*45*.55));
+    setTimeout(()=>{$('play').hidden=true;},reduce?260:maxD*45+700);
+  },reduce?0:440);
+}
+function land(guess){
+  const p=cur;
+  if(p.pct){$('bPct').textContent='-'+p.pct+'%';$('badge').classList.add('in');$('iWas').textContent=nis(p.full);$('iNow').textContent=nis(p.sale);}
+  const hit=guess!==null&&(guess===40?p.pct>=40:Math.abs(p.pct-guess)<=2);
+  let t,x;
+  if(!p.pct){t='הוא לא במבצע הפעם';x='יש עוד הרבה על השולחן שכן.';}
+  else if(guess===null){t='חוסכת '+nis(p.full-p.sale);x='במקום '+nis(p.full)+', משלמת '+nis(p.sale)+'.';}
+  else if(hit){t='בול! יש לך עין של מעצבת';x='חוסכת '+nis(p.full-p.sale)+' על התכשיט הזה.';}
+  else if(p.pct>guess){t='הפתעה! יותר ממה שחשבת';x='ניחשת '+guess+'%, וזה '+p.pct+'%. חוסכת '+nis(p.full-p.sale)+'.';}
+  else{t='כמעט. ועדיין חיסכון יפה';x='זה '+p.pct+'%, כלומר חוסכת '+nis(p.full-p.sale)+'.';}
+  $('vT').textContent=t;$('vP').textContent=x;
+  const kept=bag.includes(p.key);$('keep').setAttribute('aria-pressed',kept);$('keepT').textContent=kept?'נשמר':'שמרי';
+  $('wa').href='https://wa.me/?text='+encodeURIComponent(shareText(p));
+  if(p.pct){celebrate(hit);buzz([18,40,28]);}
+}
+$('keep').onclick=()=>{if(!bag.includes(cur.key)){bag.push(cur.key);store();renderBag();}$('keep').setAttribute('aria-pressed',true);$('keepT').textContent='נשמר';};
+// WhatsApp: the friend is not in the store, so the link goes to the product page on the site (WhatsApp shows its photo),
+// tagged so sales from these shares can be counted. The price is phrased as the store price, not a promise for the site.
+function shareText(p){
+  const url='https://shlomitofir.co.il/'+(p.it.o?'products/'+encodeURIComponent(p.h):'')+'?utm_source=whatsapp&utm_medium=store_share&utm_campaign=shoppingil_2026';
+  const line=p.pct?p.title+' של שלומית אופיר, ב-'+nis(p.sale)+' במקום '+nis(p.full)+' כאן בסניף, במבצעי ShoppingIL.':p.title+' של שלומית אופיר.';
+  return (p.pct?'מבצעים לא שומרים בסוד 🤍':'תראי מה מצאתי 🤍')+'\n'+line+'\n'+url;
+}
+function buzz(v){try{navigator.vibrate&&navigator.vibrate(v)}catch(e){}}
+
+// ---- bag ----
+function renderBag(){
+  const it=bag.map(k=>BY_SKU[k]).filter(Boolean),pay=it.reduce((s,p)=>s+p.sale,0),sv=it.reduce((s,p)=>s+p.full-p.sale,0);
+  $('bag').hidden=!it.length;document.documentElement.style.setProperty('--bagH',it.length?'70px':'0px');$('bN').textContent=it.length;$('bS').textContent=nis(sv);$('tP').textContent=nis(pay);$('tS').textContent=nis(sv);
+  const ul=$('items');ul.innerHTML='';
+  it.forEach(p=>{const li=document.createElement('li');
+    li.innerHTML='<img alt=""><div class="nm"><span></span><small>מק״ט <bdi></bdi>'+(p.pct?'<span class="off num">-'+p.pct+'%</span>':'')+'</small></div><div class="pr">'+(p.pct?'<s class="num">'+nis(p.full)+'</s>':'')+'<b class="num">'+nis(p.sale)+'</b></div>';
+    li.querySelector('.nm>span').textContent=p.title;li.querySelector('bdi').textContent=p.sku;setImg(li.querySelector('img'),p.it);ul.appendChild(li);});
+}
+$('bagBtn').onclick=()=>{renderBag();$('sheet').hidden=false;};
+$('shClose').onclick=()=>{$('sheet').hidden=true};
+$('sheet').onclick=e=>{if(e.target===$('sheet'))$('sheet').hidden=true};
+$('shClear').onclick=()=>{bag=[];store();renderBag();$('sheet').hidden=true;};
+renderBag();
+
+// ---- confetti: a different celebration every time (never the same twice in a row) ----
+const fx=$('fx'),c=fx.getContext('2d');let parts=[],raf=0,lastMode=-1;
+const SPARK=new Path2D('M12 0C12.7 6.8 17.2 11.3 24 12C17.2 12.7 12.7 17.2 12 24C11.3 17.2 6.8 12.7 0 12C6.8 11.3 11.3 6.8 12 0Z');
+const HEART=new Path2D('M12 21C5 15.5 1 11.8 1 7.5 1 4.4 3.4 2 6.4 2c2.2 0 3.9 1.2 5.6 3.3C13.7 3.2 15.4 2 17.6 2 20.6 2 23 4.4 23 7.5c0 4.3-4 8-11 13.5z');
+const GEM=new Path2D('M6 3h12l5 6-11 13L1 9z');
+const GEMF=new Path2D('M1 9h22M6 3l3 6 3-6 3 6 3-6M9 9l3 13 3-13');
+const GOLD=['#d8b064','#c99a4a','#f1d48a'],INK='#1c1c1c',SAND='#c2af9e';
+const rnd=(a,b)=>a+Math.random()*(b-a),pick=a=>a[(Math.random()*a.length)|0];
+const W_=()=>innerWidth,H_=()=>innerHeight;
+function stageC(){const s=document.querySelector('.stage').getBoundingClientRect();return {x:s.left+s.width/2,y:s.top+s.height/2,w:s.width,h:s.height};}
+function add(o){parts.push(Object.assign({x:0,y:0,vx:0,vy:0,g:.24,drag:.982,r:rnd(0,6),vr:rnd(-.2,.2),s:8,col:pick(G),shape:'rect',life:0,max:170,a:1},o));}
+const SHAPES_MIX=['rect','rect','rect','spark','heart','ring','pearl','gem'];
+function mixed(){const sh=pick(SHAPES_MIX);return {shape:sh,col:sh==='spark'?pick([INK,SAND,...GOLD]):sh==='ring'?pick(GOLD):sh==='heart'?pick(['#ea4335','#f28b9b',INK]):sh==='gem'?pick(['#bfe3ff','#ffffff','#f6d6ff','#d3f4e1']):pick(G),s:sh==='rect'?rnd(5,11):rnd(10,20)};}
+const MODES=[
+  function boom(m){const o=stageC();for(let i=0;i<170*m;i++){const a=rnd(0,Math.PI*2),v=rnd(3,13);add(Object.assign(mixed(),{x:o.x,y:o.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-7}));}},
+  function jewelRain(m){for(let i=0;i<170*m;i++){const sh=pick(['ring','ring','pearl','pearl','gem','spark']);add({shape:sh,col:sh==='ring'?pick(GOLD):sh==='gem'?pick(['#bfe3ff','#ffffff','#f6d6ff']):sh==='spark'?pick(GOLD):'#fff',x:rnd(0,W_()),y:rnd(-H_()*.8,-20),vx:rnd(-.6,.6),vy:rnd(2,4.5),g:.06,drag:.995,s:rnd(12,24),max:300});}},
+  function fireworks(m){const o=stageC();const pts=[[o.x-o.w*.25,o.y-o.h*.25],[o.x+o.w*.28,o.y-o.h*.1],[o.x,o.y+o.h*.2],[o.x-o.w*.1,o.y-o.h*.4]];pts.forEach((pt,k)=>setTimeout(()=>{const col=G[k%4],n=60*m;for(let i=0;i<n;i++){const a=i/n*Math.PI*2,v=rnd(3.5,6);const sp=Math.random()<.25;add({shape:sp?'spark':'dot',col:Math.random()<.3?pick(GOLD):col,x:pt[0],y:pt[1],vx:Math.cos(a)*v,vy:Math.sin(a)*v,g:.07,drag:.955,s:sp?rnd(9,14):rnd(2,3.5),max:rnd(80,120)});}ensure();buzz(10);},k*260));},
+  function cannons(m){const W=W_(),H=H_();[[0,1],[W,-1]].forEach(([x0,dir])=>{for(let i=0;i<110*m;i++){const a=rnd(-1.25,-.85),v=rnd(14,24);const st=Math.random()<.3;add(Object.assign(st?{shape:'streamer',col:pick(G),s:rnd(18,30)}:mixed(),{x:x0,y:H-10,vx:Math.cos(a)*v*dir*.55,vy:Math.sin(a)*v,g:.32,drag:.985,max:200}));}});},
+  function twinkle(m){const o=stageC();for(let i=0;i<90*m;i++){add({shape:'spark',col:pick([INK,SAND,...GOLD,...G]),x:o.x+rnd(-o.w*.6,o.w*.6),y:o.y+rnd(-o.h*.65,o.h*.75),g:0,drag:1,vr:0,r:0,s:rnd(8,26),life:-((Math.random()*60)|0),max:rnd(50,80),tw:1});}},
+  function tiles(m){for(let i=0;i<75*m;i++){add({shape:'tile',col:pick(G),x:rnd(0,W_()),y:rnd(-H_()*.7,-30),vx:rnd(-.8,.8),vy:rnd(1.5,3.5),g:.05,drag:.995,s:rnd(16,30),vr:rnd(-.05,.05),max:320});}},
+  function hearts(m){const W=W_(),H=H_();for(let i=0;i<70*m;i++){add({shape:'heart',col:pick(['#ea4335','#f28b9b','#f6b6c2',INK,'#d8b064']),x:rnd(W*.1,W*.9),y:H+rnd(10,H*.5),vx:rnd(-.5,.5),vy:rnd(-5,-2.5),g:-.01,drag:.995,s:rnd(14,28),vr:rnd(-.02,.02),r:rnd(-.3,.3),max:320,wob:rnd(0,6)});}},
+  function signs(m){for(let i=0;i<90*m;i++){add({shape:'text',txt:pick(['%','%','₪','✦']),col:pick([...G,INK]),x:rnd(0,W_()),y:rnd(-H_()*.7,-20),vx:rnd(-.6,.6),vy:rnd(2,4),g:.07,drag:.995,s:rnd(18,34),vr:rnd(-.06,.06),max:300});}},
+  function gems(m){const o=stageC();for(let i=0;i<80*m;i++){const a=rnd(0,Math.PI*2),v=rnd(4,12);add({shape:Math.random()<.7?'gem':'spark',col:pick(['#bfe3ff','#ffffff','#f6d6ff','#d3f4e1','#fff1b8']),x:o.x,y:o.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-6,s:rnd(14,26),max:190});}}
+];
+function celebrate(big){
+  if(reduce)return;
+  const dpr=devicePixelRatio||1;fx.width=innerWidth*dpr;fx.height=innerHeight*dpr;c.setTransform(dpr,0,0,dpr,0,0);
+  let k;do{k=(Math.random()*MODES.length)|0}while(k===lastMode);lastMode=k;MODES[k](1);
+  if(big){let k2;do{k2=(Math.random()*MODES.length)|0}while(k2===k);setTimeout(()=>{MODES[k2](.8);ensure();},450);}
+  ensure();
+}
+function ensure(){if(!raf)raf=requestAnimationFrame(tick);}
+// preview hook: __fx(k) plays celebration k on its own
+window.__fx=k=>{const dpr=devicePixelRatio||1;fx.width=innerWidth*dpr;fx.height=innerHeight*dpr;c.setTransform(dpr,0,0,dpr,0,0);MODES[k%MODES.length](1);ensure();return MODES[k%MODES.length].name;};
+function draw(p,a){
+  c.save();c.translate(p.x,p.y);c.rotate(p.r);c.globalAlpha=a;c.fillStyle=p.col;c.strokeStyle=p.col;
+  const s=p.s*(p.tw?Math.sin(Math.PI*Math.max(0,p.life)/p.max):1);
+  switch(p.shape){
+    case 'rect':{const w=p.s*Math.abs(Math.cos(p.life/7+p.r));c.fillRect(-w/2,-p.s/2,w+.5,p.s);break;}
+    case 'dot':c.beginPath();c.arc(0,0,p.s,0,Math.PI*2);c.fill();break;
+    case 'spark':c.scale(s/24,s/24);c.translate(-12,-12);c.fill(SPARK);break;
+    case 'heart':c.translate(Math.sin(p.life/18+p.wob)*6,0);c.scale(s/24,s/24);c.translate(-12,-12);c.fill(HEART);break;
+    case 'ring':c.scale(1,Math.abs(Math.cos(p.life/14+p.r))*.7+.3);c.lineWidth=p.s*.18;c.beginPath();c.arc(0,0,p.s*.4,0,Math.PI*2);c.stroke();c.fillStyle='#fff';c.beginPath();c.arc(0,-p.s*.42,p.s*.12,0,Math.PI*2);c.fill();break;
+    case 'pearl':{const gr=c.createRadialGradient(-p.s*.15,-p.s*.15,1,0,0,p.s*.45);gr.addColorStop(0,'#ffffff');gr.addColorStop(.7,'#f1ece4');gr.addColorStop(1,'#cfc6b8');c.fillStyle=gr;c.beginPath();c.arc(0,0,p.s*.42,0,Math.PI*2);c.fill();break;}
+    case 'gem':c.scale(p.s/24,p.s/24);c.translate(-12,-12);c.fill(GEM);c.strokeStyle='rgba(28,28,28,.35)';c.lineWidth=1;c.stroke(GEM);c.stroke(GEMF);break;
+    case 'tile':{const w=p.s*Math.abs(Math.cos(p.life/16+p.r));c.fillRect(-w/2,-p.s/2,w+.5,p.s);break;}
+    case 'streamer':{c.lineWidth=3.5;c.lineCap='round';c.beginPath();for(let t=0;t<=p.s;t+=2){const y=t-p.s/2,x=Math.sin(t/5+p.life/4)*4;t?c.lineTo(x,y):c.moveTo(x,y);}c.stroke();break;}
+    case 'text':c.font='400 '+p.s+'px "Tenor Sans",serif';c.textAlign='center';c.textBaseline='middle';c.fillText(p.txt,0,0);break;
+  }
+  c.restore();
+}
+function tick(){
+  c.clearRect(0,0,innerWidth,innerHeight);
+  const H=innerHeight;
+  parts=parts.filter(p=>p.life<p.max&&!(p.vy>0&&p.y>H+60));
+  for(const p of parts){p.life++;if(p.life<0)continue;p.vy+=p.g;p.vx*=p.drag;p.vy*=p.drag;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;
+    draw(p,p.tw?1:Math.min(1,(p.max-p.life)/40));}
+  raf=parts.length?requestAnimationFrame(tick):0;if(!raf)c.clearRect(0,0,innerWidth,innerHeight);
+}
+}).catch(e=>{const h=document.getElementById('hint');h.hidden=false;h.textContent='לא הצלחנו לטעון את המחירים. רענני את הדף, ואם זה חוזר, המוכרות ישמחו לעזור.';console.error(e);});
+</script>
+
+</body></html>
