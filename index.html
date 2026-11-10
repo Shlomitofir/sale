@@ -232,15 +232,15 @@ bdi{unicode-bidi:isolate}
   <div class="shatter" id="shatter" hidden></div>
 </div>
 
-<div class="bag" id="bag" hidden><button id="bagBtn"><span><span class="sq"><i style="background:var(--g-blue)"></i><i style="background:var(--g-red)"></i><i style="background:var(--g-yellow)"></i></span><b>שמרת <span class="num" id="bN"></span></b> · להציג בקופה</span><span>חסכת <b class="num" id="bS"></b></span></button></div>
+<div class="bag" id="bag" hidden><button id="bagBtn"><span><span class="sq"><i style="background:var(--g-blue)"></i><i style="background:var(--g-red)"></i><i style="background:var(--g-yellow)"></i></span><b>שמרת <span class="num" id="bN"></span></b> · להציג בקופה</span><span>הנחה <b class="num" id="bS"></b></span></button></div>
 
 <div class="sheet" id="sheet" hidden>
   <div class="in" role="dialog" aria-modal="true" aria-labelledby="shT">
     <h2 id="shT">התכשיטים ששמרת</h2>
     <p class="sub">להציג למוכרת בקופה</p>
     <ul class="items" id="items"></ul>
-    <div class="tot"><span>לתשלום</span><b class="num" id="tP"></b></div>
-    <div class="tot sv"><span>חסכת במבצע</span><span class="num" id="tS"></span></div>
+    <div class="tot"><span>מחיר במבצע</span><b class="num" id="tP"></b></div>
+    <div class="tot sv"><span>הנחת נובמבר</span><span class="num" id="tS"></span></div>
     <button class="btn" id="shClose">סגירה</button>
     <button class="link" id="shClear">לנקות את הרשימה</button>
   </div>
@@ -398,10 +398,11 @@ function land(guess){
   const hit=guess!==null&&(guess===40?p.pct>=40:Math.abs(p.pct-guess)<=2);
   let t,x;
   if(!p.pct){t='הוא לא במבצע הפעם';x='יש עוד הרבה על השולחן שכן.';}
-  else if(guess===null){t='חוסכת '+nis(p.full-p.sale);x='במקום '+nis(p.full)+', משלמת '+nis(p.sale)+'.';}
-  else if(hit){t='בול! יש לך עין של מעצבת';x='חוסכת '+nis(p.full-p.sale)+' על התכשיט הזה.';}
-  else if(p.pct>guess){t='הפתעה! יותר ממה שחשבת';x='ניחשת '+guess+'%, וזה '+p.pct+'%. חוסכת '+nis(p.full-p.sale)+'.';}
-  else{t='כמעט. ועדיין חיסכון יפה';x='זה '+p.pct+'%, כלומר חוסכת '+nis(p.full-p.sale)+'.';}
+  // owner, 10/11: no money-saving verbs (saving / paying) — the reveal speaks about the jewel and its sale price, not about saving money
+  else if(guess===null){t='שלך במחיר נובמבר';x=p.pct+'% הנחה על התכשיט הזה, במחיר '+nis(p.sale)+'.';}
+  else if(hit){t='בול! יש לך עין של מעצבת';x=p.pct+'% הנחה על התכשיט הזה, במחיר '+nis(p.sale)+'.';}
+  else if(p.pct>guess){t='הפתעה! יותר ממה שחשבת';x='ניחשת '+guess+'%, וזה '+p.pct+'%.';}
+  else{t='כמעט!';x='זה '+p.pct+'% הנחה, במחיר '+nis(p.sale)+'.';}
   $('vT').textContent=t;$('vP').textContent=x;
   const kept=bag.includes(p.key);$('keep').setAttribute('aria-pressed',kept);$('keepT').textContent=kept?'נשמר':'שמרי';
   $('wa').href='https://wa.me/?text='+encodeURIComponent(shareText(p));
