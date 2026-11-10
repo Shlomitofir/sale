@@ -1,16 +1,17 @@
 <!doctype html>
 <html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"></head><body>
 <meta charset="utf-8">
-<title>גלי את ההנחה</title>
+<title>נובמבר סייל · גלי את ההנחה</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <script>document.documentElement.dir='rtl';document.documentElement.lang='he'</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Heebo:wght@300;400;500;700&display=swap">
 <style>
-/* Layout: one phone column on white (Shlomit Ofir). The guess takes over the whole screen as four ShoppingIL color fields;
-   on a tap they shatter into tiles that shuffle across the screen and fly off to reveal the jewel and its discount. */
+/* November Sale copy of the 01/11 event page (10/11/2026): Shlomit Ofir only, no event partner mark.
+   The four color fields are the campaign colors as sampled from shlomitofir.co.il on 10/11/2026
+   (dark ticker, red bar and sale price, pale blue countdown, slate blue hero); --g-* names kept from the original. */
 :root{
   --paper:#ffffff; --sand:#eeeae6; --sand2:#d4c5b3; --taupe:#74665a; --ink:#1c1c1c; --ink2:#4d4d4d; --line:#e2dbd3;
-  --g-blue:#4285f4; --g-red:#ea4335; --g-yellow:#fbbc04; --g-green:#34a853;
+  --g-blue:#252525; --g-red:#a21a16; --g-yellow:#d6e1f4; --g-green:#79879d;
   --latin:'Tenor Sans','Times New Roman',serif;
   --he:'Heebo','Arial Hebrew',Arial,sans-serif;
   color-scheme:light;
@@ -29,8 +30,8 @@ bdi{unicode-bidi:isolate}
 .lock{display:flex;justify-content:center;padding:10px 0 16px;border-bottom:1px solid var(--ink)}
 .lock .so{height:auto;width:min(78%,300px)}
 .so{height:24px;width:auto;display:block;flex:none}
-/* ShoppingIL appears as a small participant mark, never next to our wordmark at equal size */
-.sil{display:inline-block;height:22px;width:80px;background:url(img/shoppingil.png) no-repeat;background-size:135.4px auto;background-position:-28.2px -8.5px;flex:none;vertical-align:middle}
+/* the sale's own wordmark, in the brand's Latin face */
+.nov{font-family:var(--latin);letter-spacing:.18em;font-size:13px;color:var(--g-red);white-space:nowrap}
 
 /* home */
 .hero{padding:24px 0 18px}
@@ -78,21 +79,20 @@ bdi{unicode-bidi:isolate}
 .badge .p{font-family:var(--latin);font-size:min(52px,13vw);line-height:.95}
 .badge small{font-size:17px}
 .badge .bp svg{width:14px;height:14px;fill:#fff;align-self:flex-start;margin-top:4px}
-/* ShoppingIL mark sits on a white block inside the band, so its colors stay true on the black */
-.badge .silband{background:#fff;display:flex;align-items:center;justify-content:center;padding:0 12px;margin:4px;flex:none}
-.badge .silband .sil{height:26px;width:94px;background-size:160px auto;background-position:-33.3px -10px}
+/* the sale wordmark sits in a red block at the end of the band, like the site's announcement bar */
+.badge .silband{background:var(--g-red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 14px;margin:4px;flex:none;font-family:var(--latin);letter-spacing:.16em;font-size:13px;line-height:1.25;text-align:center}
 .badge.in{animation:drop .55s cubic-bezier(.2,1.5,.4,1) forwards}
 @keyframes drop{0%{opacity:0;transform:translateY(-14px) scaleY(.6)}100%{opacity:1;transform:none}}
 .meta{padding:8px 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
 .meta h1{margin:0;font-weight:400;font-size:22px;line-height:1.2;min-width:0}
 .meta .sku{display:block;font-size:13px;color:var(--taupe);margin-top:2px}
 .price{text-align:left;white-space:nowrap}
-.price s{display:block;color:var(--taupe);font-size:17px;text-decoration:line-through;text-decoration-color:#ea4335;text-decoration-thickness:2px}
-.price b{font-family:var(--he);font-weight:700;font-size:34px;line-height:1.05}
+.price s{display:block;color:var(--taupe);font-size:17px;text-decoration:line-through;text-decoration-color:#a21a16;text-decoration-thickness:2px}
+.price b{color:var(--g-red);font-family:var(--he);font-weight:700;font-size:34px;line-height:1.05}
 .done{margin-top:8px;display:flex;flex-direction:column;gap:8px}
 .done .btn{padding-block:13px}
 .badge .bp{min-width:0}
-@media (max-width:370px){.badge .silband{padding:0 8px}.badge .silband .sil{height:20px;width:72px;background-size:123px auto;background-position:-25.6px -7.7px}.badge .bp{gap:6px;padding-inline:12px}}
+@media (max-width:370px){.badge .silband{padding:0 8px;font-size:11px;letter-spacing:.1em}.badge .bp{gap:6px;padding-inline:12px}}
 @media (max-height:640px){.verdict p{display:none}.meta h1{font-size:19px}.price b{font-size:28px}.badge .bp{padding:8px 14px 6px}.badge .p{font-size:40px}}
 .verdict{display:flex;gap:10px;align-items:flex-start}
 .verdict svg{width:18px;height:18px;flex:none;margin-top:5px}
@@ -156,8 +156,8 @@ bdi{unicode-bidi:isolate}
 .items .nm{min-width:0;font-size:15px}
 .items .nm small{display:block;color:var(--taupe);font-size:13px}
 .items .pr{text-align:left;white-space:nowrap}
-.items .pr s{display:block;color:var(--taupe);font-size:13px;text-decoration-color:#ea4335;text-decoration-thickness:2px}
-.items .pr b{font-weight:700;font-size:19px}
+.items .pr s{display:block;color:var(--taupe);font-size:13px;text-decoration-color:#a21a16;text-decoration-thickness:2px}
+.items .pr b{color:var(--g-red);font-weight:700;font-size:19px}
 .off{display:inline-block;background:var(--ink);color:#fff;font-family:var(--latin);font-size:13px;padding:0 5px;margin-inline-start:8px}
 .tot{display:flex;justify-content:space-between;align-items:baseline;font-size:17px}
 .tot b{font-family:var(--latin);font-weight:400;font-size:24px}
@@ -176,7 +176,7 @@ bdi{unicode-bidi:isolate}
       <img class="so" src="img/so-logo.png" alt="Shlomit Ofir">
     </header>
     <div class="hero">
-      <div class="ev"><span class="dots"><i style="background:var(--g-blue)"></i><i style="background:var(--g-red)"></i><i style="background:var(--g-yellow)"></i><i style="background:var(--g-green)"></i></span><span>ימי מבצעים בסניף, במסגרת</span><span class="sil" role="img" aria-label="ShoppingIL by Google"></span></div>
+      <div class="ev"><span class="dots"><i style="background:var(--g-blue)"></i><i style="background:var(--g-red)"></i><i style="background:var(--g-yellow)"></i><i style="background:var(--g-green)"></i></span><span>מבצעי נובמבר בסניף</span><span class="nov">NOVEMBER SALE</span></div>
       <h1>מה הסוד של <b>התכשיט שלך?</b></h1>
       <p class="lead" id="lead"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#spark"/></svg><strong>גלי מה ההנחה על התכשיט שאהבת</strong></p>
       <div class="find" id="find">
@@ -198,7 +198,7 @@ bdi{unicode-bidi:isolate}
       <button class="back" id="back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>תכשיט אחר</button>
       <img class="so" src="img/so-logo.png" alt="Shlomit Ofir">
     </div>
-    <div class="badge" id="badge"><span class="bp"><svg viewBox="0 0 24 24"><use href="#spark"/></svg><span class="p num" id="bPct"></span><small>הנחה</small></span><span class="silband"><span class="sil" role="img" aria-label="ShoppingIL by Google"></span></span></div>
+    <div class="badge" id="badge"><span class="bp"><svg viewBox="0 0 24 24"><use href="#spark"/></svg><span class="p num" id="bPct"></span><small>הנחה</small></span><span class="silband"><span>NOVEMBER</span><span>SALE</span></span></div>
     <div class="stage">
       <img class="blur" id="iBg" alt="">
       <img id="iImg" alt="">
@@ -226,7 +226,7 @@ bdi{unicode-bidi:isolate}
       <button class="chip" id="qBack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>חזרה</button>
     </div>
     <div class="q-photo"><img class="blur" id="qBg" alt=""><img id="qImg" alt=""></div>
-    <div class="q-ask"><span class="sil q-sil" role="img" aria-label="ShoppingIL by Google"></span><span class="nm" id="qName"></span><h2>כמה הנחה <b>מסתתרת כאן?</b></h2><button class="q-skip" id="qSkip">בלי לנחש, רק תגלו לי</button></div>
+    <div class="q-ask"><span class="nm" id="qName"></span><h2>כמה הנחה <b>מסתתרת כאן?</b></h2><button class="q-skip" id="qSkip">בלי לנחש, רק תגלו לי</button></div>
     <div class="quads" id="quads"></div>
   </div>
   <div class="shatter" id="shatter" hidden></div>
@@ -252,7 +252,7 @@ fetch('data.json').then(r=>{if(!r.ok)throw new Error('data '+r.status);return r.
 const $=id=>document.getElementById(id);
 const nis=n=>'₪'+(Math.round(n*100)/100).toLocaleString('he-IL',{maximumFractionDigits:2});
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const G=['#4285f4','#ea4335','#fbbc04','#34a853'];
+const G=['#252525','#a21a16','#d6e1f4','#79879d'];
 const GUESS=[10,20,30,40];
 const DIRECT=true;
 const STANDS={earrings:'עגילים',necklaces:'שרשראות',bracelets:'צמידים',rings:'טבעות',charms:"צ'ארמס"};
@@ -279,14 +279,14 @@ function cellURL(it){
 const BLANK='img/so-logo.png';
 function setImg(el,it){el.removeAttribute('src');if(!it.i){el.src=BLANK;el.dataset.n=it.n;return;}cellURL(it).then(u=>{if(el.dataset.n==String(it.n))el.src=u;});el.dataset.n=it.n;}
 
-let bag=[];try{bag=JSON.parse(localStorage.getItem('sil-bag-live')||'[]').filter(k=>BY_SKU[k])}catch(e){}
-const store=()=>{try{localStorage.setItem('sil-bag-live',JSON.stringify(bag))}catch(e){}};
+let bag=[];try{bag=JSON.parse(localStorage.getItem('nov-bag-live')||'[]').filter(k=>BY_SKU[k])}catch(e){}
+const store=()=>{try{localStorage.setItem('nov-bag-live',JSON.stringify(bag))}catch(e){}};
 
 // ---- after the sale ends, the page stops showing prices ----
 const ended=Date.now()>Date.parse(DATA.endsAt);
 const pulled=new Date(DATA.pulledAt);
 $('stamp').textContent='המחיר הקובע הוא המחיר בקופה · מחירים מ-'+pulled.toLocaleDateString('he-IL',{day:'numeric',month:'numeric'})+', '+pulled.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
-if(ended){$('find').hidden=true;$('hint').hidden=true;document.querySelector('.shelf').hidden=true;$('lead').innerHTML='<strong>מבצעי ShoppingIL הסתיימו. תודה שבאת! המוכרות ישמחו לעזור עם כל תכשיט 🤍</strong>';$('q').disabled=true;}
+if(ended){$('find').hidden=true;$('hint').hidden=true;document.querySelector('.shelf').hidden=true;$('lead').innerHTML='<strong>מבצעי נובמבר הסתיימו. תודה שבאת! המוכרות ישמחו לעזור עם כל תכשיט 🤍</strong>';$('q').disabled=true;}
 $('q').disabled=ended;$('q').placeholder='מק״ט או שם התכשיט';
 
 // ---- home ----
@@ -354,8 +354,8 @@ function home(){$('play').hidden=true;$('item').hidden=true;$('home').hidden=fal
 $('qBack').onclick=$('back').onclick=$('next').onclick=home;
 $('qSkip').onclick=()=>go(null,-1);
 
-const PAL=[...G,...G,'#1a57c9','#d4c5b3','#eeeae6'];
-const LIGHT=c=>c==='#fbbc04'||c==='#d4c5b3'||c==='#eeeae6';
+const PAL=[...G,...G,'#9fa0b2','#f7f6f5','#4d4d4d'];
+const LIGHT=c=>c==='#d6e1f4'||c==='#9fa0b2'||c==='#f7f6f5';
 const ICON=['<svg viewBox="0 0 24 24"><use href="#spark"/></svg>','<svg viewBox="0 0 24 24"><text x="12" y="19" text-anchor="middle" font-family="Tenor Sans,serif" font-size="20">%</text></svg>'];
 function paint(t,c){t.style.backgroundColor=c;t.classList.toggle('lt',LIGHT(c));}
 
@@ -411,8 +411,8 @@ $('keep').onclick=()=>{if(!bag.includes(cur.key)){bag.push(cur.key);store();rend
 // WhatsApp: the friend is not in the store, so the link goes to the product page on the site (WhatsApp shows its photo),
 // tagged so sales from these shares can be counted. The price is phrased as the store price, not a promise for the site.
 function shareText(p){
-  const url='https://shlomitofir.co.il/'+(p.it.o?'products/'+encodeURIComponent(p.h):'')+'?utm_source=whatsapp&utm_medium=store_share&utm_campaign=shoppingil_2026';
-  const line=p.pct?p.title+' של שלומית אופיר, ב-'+nis(p.sale)+' במקום '+nis(p.full)+' כאן בסניף, במבצעי ShoppingIL.':p.title+' של שלומית אופיר.';
+  const url='https://shlomitofir.co.il/'+(p.it.o?'products/'+encodeURIComponent(p.h):'')+'?utm_source=whatsapp&utm_medium=store_share&utm_campaign=november_sale_2026';
+  const line=p.pct?p.title+' של שלומית אופיר, ב-'+nis(p.sale)+' במקום '+nis(p.full)+' כאן בסניף, במבצעי נובמבר.':p.title+' של שלומית אופיר.';
   return (p.pct?'מבצעים לא שומרים בסוד 🤍':'תראי מה מצאתי 🤍')+'\n'+line+'\n'+url;
 }
 function buzz(v){try{navigator.vibrate&&navigator.vibrate(v)}catch(e){}}
@@ -444,7 +444,7 @@ const W_=()=>innerWidth,H_=()=>innerHeight;
 function stageC(){const s=document.querySelector('.stage').getBoundingClientRect();return {x:s.left+s.width/2,y:s.top+s.height/2,w:s.width,h:s.height};}
 function add(o){parts.push(Object.assign({x:0,y:0,vx:0,vy:0,g:.24,drag:.982,r:rnd(0,6),vr:rnd(-.2,.2),s:8,col:pick(G),shape:'rect',life:0,max:170,a:1},o));}
 const SHAPES_MIX=['rect','rect','rect','spark','heart','ring','pearl','gem'];
-function mixed(){const sh=pick(SHAPES_MIX);return {shape:sh,col:sh==='spark'?pick([INK,SAND,...GOLD]):sh==='ring'?pick(GOLD):sh==='heart'?pick(['#ea4335','#f28b9b',INK]):sh==='gem'?pick(['#bfe3ff','#ffffff','#f6d6ff','#d3f4e1']):pick(G),s:sh==='rect'?rnd(5,11):rnd(10,20)};}
+function mixed(){const sh=pick(SHAPES_MIX);return {shape:sh,col:sh==='spark'?pick([INK,SAND,...GOLD]):sh==='ring'?pick(GOLD):sh==='heart'?pick(['#a21a16','#f28b9b',INK]):sh==='gem'?pick(['#bfe3ff','#ffffff','#f6d6ff','#d3f4e1']):pick(G),s:sh==='rect'?rnd(5,11):rnd(10,20)};}
 const MODES=[
   function boom(m){const o=stageC();for(let i=0;i<170*m;i++){const a=rnd(0,Math.PI*2),v=rnd(3,13);add(Object.assign(mixed(),{x:o.x,y:o.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-7}));}},
   function jewelRain(m){for(let i=0;i<170*m;i++){const sh=pick(['ring','ring','pearl','pearl','gem','spark']);add({shape:sh,col:sh==='ring'?pick(GOLD):sh==='gem'?pick(['#bfe3ff','#ffffff','#f6d6ff']):sh==='spark'?pick(GOLD):'#fff',x:rnd(0,W_()),y:rnd(-H_()*.8,-20),vx:rnd(-.6,.6),vy:rnd(2,4.5),g:.06,drag:.995,s:rnd(12,24),max:300});}},
@@ -452,7 +452,7 @@ const MODES=[
   function cannons(m){const W=W_(),H=H_();[[0,1],[W,-1]].forEach(([x0,dir])=>{for(let i=0;i<110*m;i++){const a=rnd(-1.25,-.85),v=rnd(14,24);const st=Math.random()<.3;add(Object.assign(st?{shape:'streamer',col:pick(G),s:rnd(18,30)}:mixed(),{x:x0,y:H-10,vx:Math.cos(a)*v*dir*.55,vy:Math.sin(a)*v,g:.32,drag:.985,max:200}));}});},
   function twinkle(m){const o=stageC();for(let i=0;i<90*m;i++){add({shape:'spark',col:pick([INK,SAND,...GOLD,...G]),x:o.x+rnd(-o.w*.6,o.w*.6),y:o.y+rnd(-o.h*.65,o.h*.75),g:0,drag:1,vr:0,r:0,s:rnd(8,26),life:-((Math.random()*60)|0),max:rnd(50,80),tw:1});}},
   function tiles(m){for(let i=0;i<75*m;i++){add({shape:'tile',col:pick(G),x:rnd(0,W_()),y:rnd(-H_()*.7,-30),vx:rnd(-.8,.8),vy:rnd(1.5,3.5),g:.05,drag:.995,s:rnd(16,30),vr:rnd(-.05,.05),max:320});}},
-  function hearts(m){const W=W_(),H=H_();for(let i=0;i<70*m;i++){add({shape:'heart',col:pick(['#ea4335','#f28b9b','#f6b6c2',INK,'#d8b064']),x:rnd(W*.1,W*.9),y:H+rnd(10,H*.5),vx:rnd(-.5,.5),vy:rnd(-5,-2.5),g:-.01,drag:.995,s:rnd(14,28),vr:rnd(-.02,.02),r:rnd(-.3,.3),max:320,wob:rnd(0,6)});}},
+  function hearts(m){const W=W_(),H=H_();for(let i=0;i<70*m;i++){add({shape:'heart',col:pick(['#a21a16','#f28b9b','#f6b6c2',INK,'#d8b064']),x:rnd(W*.1,W*.9),y:H+rnd(10,H*.5),vx:rnd(-.5,.5),vy:rnd(-5,-2.5),g:-.01,drag:.995,s:rnd(14,28),vr:rnd(-.02,.02),r:rnd(-.3,.3),max:320,wob:rnd(0,6)});}},
   function signs(m){for(let i=0;i<90*m;i++){add({shape:'text',txt:pick(['%','%','₪','✦']),col:pick([...G,INK]),x:rnd(0,W_()),y:rnd(-H_()*.7,-20),vx:rnd(-.6,.6),vy:rnd(2,4),g:.07,drag:.995,s:rnd(18,34),vr:rnd(-.06,.06),max:300});}},
   function gems(m){const o=stageC();for(let i=0;i<80*m;i++){const a=rnd(0,Math.PI*2),v=rnd(4,12);add({shape:Math.random()<.7?'gem':'spark',col:pick(['#bfe3ff','#ffffff','#f6d6ff','#d3f4e1','#fff1b8']),x:o.x,y:o.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-6,s:rnd(14,26),max:190});}}
 ];
