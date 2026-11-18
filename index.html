@@ -1,55 +1,63 @@
 <!doctype html>
-<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"></head><body>
+<html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta name="theme-color" content="#1c1b21"></head><body>
 <meta charset="utf-8">
-<title>נובמבר סייל · גלי את ההנחה</title>
+<title>בלאק פריידי · גלי את ההנחה</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <script>document.documentElement.dir='rtl';document.documentElement.lang='he'</script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Heebo:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Heebo:wght@300;400;500;700;900&display=swap">
 <style>
-/* November Sale copy of the 01/11 event page (10/11/2026): Shlomit Ofir only, no event partner mark.
-   The four color fields are the campaign colors as sampled from shlomitofir.co.il on 10/11/2026
-   (dark ticker, red bar and sale price, pale blue countdown, slate blue hero); --g-* names kept from the original. */
+/* Black Friday 2026 copy of the store reveal page (18/11/2026, Amir). The colors come from two brand sources:
+   - Shlomit's 2026 key visual (Drive, 16/11, gold jewels on a two-tone almost-black wall): charcoal #303338, near-black #1c1b21, gold.
+   - the 2025 Black Friday newsletter: heavy grotesk "BLACK FRIDAY", black and white, 🖤.
+   The page is dark; product photos keep their light card so the jewel reads as it does on the site.
+   --g-* names are kept from the original: the four tile colors are black, gold, charcoal and the photo card. */
 :root{
-  --paper:#ffffff; --sand:#eeeae6; --sand2:#d4c5b3; --taupe:#74665a; --ink:#1c1c1c; --ink2:#4d4d4d; --line:#e2dbd3;
-  --g-blue:#252525; --g-red:#a21a16; --g-yellow:#d6e1f4; --g-green:#79879d;
+  --paper:#1c1b21; --sand:#303338; --sand2:#3a3c42; --taupe:#a39e97; --ink:#f4f2ef; --ink2:#cfcac3; --line:#3a3a41;
+  --gold:#c9a66b; --card:#f4f2ef; --black:#0f0f12;
+  --g-blue:#0f0f12; --g-red:#c9a66b; --g-yellow:#f4f2ef; --g-green:#3a3c42;
   --latin:'Tenor Sans','Times New Roman',serif;
   --he:'Heebo','Arial Hebrew',Arial,sans-serif;
-  color-scheme:light;
+  color-scheme:dark;
 }
 [hidden]{display:none!important}
 html{direction:rtl;height:100%;background:var(--paper)}
 body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font-family:var(--he);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
 *{box-sizing:border-box}
 button{font-family:inherit;color:inherit;cursor:pointer}
-:focus-visible{outline:2px solid var(--g-blue);outline-offset:2px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .num{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
 bdi{unicode-bidi:isolate}
 .app{max-width:440px;margin:0 auto;padding-block:14px 110px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 
 /* lockup */
-.lock{display:flex;justify-content:center;padding:10px 0 16px;border-bottom:1px solid var(--ink)}
+.lock{display:flex;justify-content:center;padding:10px 0 16px}
 .lock .so{height:auto;width:min(78%,300px)}
 .so{height:24px;width:auto;display:block;flex:none}
-/* the sale's own wordmark, in the brand's Latin face */
-.nov{font-family:var(--latin);letter-spacing:.18em;font-size:13px;color:var(--g-red);white-space:nowrap}
+/* the sale's own wordmark: heavy grotesk, as in the 2025 Black Friday newsletter */
+.nov{font-family:var(--he);font-weight:900;letter-spacing:.02em;font-size:13px;color:var(--gold);white-space:nowrap;direction:ltr}
 
-/* home */
-.hero{padding:24px 0 18px}
+/* home: the key visual band (gold jewels on the almost-black wall), then the BLACK FRIDAY wordmark */
+.kv{display:block;width:calc(100% + 32px);margin:0 -16px;aspect-ratio:1000/329;object-fit:cover;background:var(--sand)}
+.bfw{direction:ltr;text-align:left;font-family:var(--he);font-weight:900;font-size:min(64px,16.5vw);line-height:.86;letter-spacing:-.01em;margin:18px 0 0;color:var(--ink)}
+.bfw span{display:block}
+.bfw .cm{font-weight:500;font-size:min(15px,3.9vw);letter-spacing:.24em;color:var(--gold);margin-top:10px;line-height:1.2}
+.hero{padding:6px 0 18px}
 .ev{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2)}
 .ev .dots{display:inline-flex;gap:3px}.ev .dots i{width:6px;height:6px;display:block}
-.hero h1{font-weight:300;font-size:36px;line-height:1.1;margin:14px 0 0;text-wrap:balance}
+.hero h1{font-weight:300;font-size:32px;line-height:1.1;margin:18px 0 0;text-wrap:balance}
 .hero h1 b{font-weight:500;display:block}
-.hero .lead{margin:16px 0 0;display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:11px 16px 12px;font-size:min(18px,4.6vw);line-height:1.3;font-weight:400}
-.hero .lead svg{width:13px;height:13px;fill:#fff;flex:none}
-.hero .lead strong{font-weight:400}
+.hero .lead{margin:16px 0 0;display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--black);padding:11px 16px 12px;font-size:min(18px,4.6vw);line-height:1.3;font-weight:400}
+.hero .lead svg{width:13px;height:13px;fill:var(--black);flex:none}
+.hero .lead strong{font-weight:500}
 .find{position:relative;margin-top:18px}
-.find input{width:100%;font:inherit;font-size:18px;padding:15px 48px 15px 16px;border:1px solid var(--ink);border-radius:0;background:var(--paper);color:var(--ink);-webkit-appearance:none;appearance:none}
-.find input::placeholder{color:#7d7268}
+.find input{width:100%;font:inherit;font-size:18px;padding:15px 48px 15px 16px;border:1px solid var(--ink2);border-radius:0;background:var(--sand);color:var(--ink);-webkit-appearance:none;appearance:none}
+.find input::placeholder{color:#a39e97}
 .find svg{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:20px;height:20px}
 .hint{font-size:13px;color:var(--taupe);margin:8px 0 0}
 .res{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-top:0}
 .res button{width:100%;display:flex;align-items:center;gap:12px;background:var(--paper);border:0;border-top:1px solid var(--line);padding:8px 10px;text-align:right}
-.res img{width:48px;height:48px;object-fit:cover;flex:none;background:var(--sand)}
+.res img{width:48px;height:48px;object-fit:contain;flex:none;background:var(--card)}
+.res .more{padding:8px 10px;font-size:13px;color:var(--taupe);border-top:1px solid var(--line)}
 .res .t{display:flex;flex-direction:column;min-width:0}
 .res small{color:var(--taupe);font-size:13px}
 .shelf{margin-top:26px}
@@ -58,9 +66,9 @@ bdi{unicode-bidi:isolate}
 .strip button{border:0;background:none;padding:0;text-align:right;display:flex;flex-direction:column;gap:5px;font-size:13px;line-height:1.25;min-width:0}
 .strip .ph{position:relative;aspect-ratio:1;background:var(--sand);overflow:hidden}
 .strip img{width:100%;height:100%;object-fit:contain;display:block}
-.strip .ph{background:#f4f2ef}
-.strip .q{position:absolute;inset:auto auto 0 0;width:24px;height:24px;display:grid;place-items:center;background:var(--ink)}
-.strip .q svg{width:11px;height:11px;fill:#fff}
+.strip .ph{background:var(--card)}
+.strip .q{position:absolute;inset:auto auto 0 0;width:24px;height:24px;display:grid;place-items:center;background:var(--black)}
+.strip .q svg{width:11px;height:11px;fill:var(--gold)}
 .demo{margin:26px 0 0;font-size:13px;color:var(--taupe);text-align:center}
 
 /* result: one phone screen, no scrolling. The photo takes whatever height is left. */
@@ -71,39 +79,39 @@ bdi{unicode-bidi:isolate}
 .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
 .top .so{height:auto;width:min(46%,170px)}
 .back{border:0;background:none;padding:8px 0;min-height:44px;font-size:14px;color:var(--ink2);display:flex;align-items:center;gap:4px}
-.stage{position:relative;aspect-ratio:4/5;max-width:100%;background:#f4f2ef;overflow:hidden}
+.stage{position:relative;aspect-ratio:4/5;max-width:100%;background:var(--card);overflow:hidden}
 .stage>#iImg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
 /* the discount is a bold band across the top, above the photo (never covering the jewel) */
-.badge{position:relative;display:flex;align-items:stretch;justify-content:space-between;background:var(--ink);color:#fff;margin-bottom:6px;opacity:0;transform:translateY(-14px) scaleY(.6);transform-origin:top}
+.badge{position:relative;display:flex;align-items:stretch;justify-content:space-between;background:var(--black);color:#fff;border:1px solid var(--line);margin-bottom:6px;opacity:0;transform:translateY(-14px) scaleY(.6);transform-origin:top}
 .badge .bp{display:flex;align-items:baseline;gap:10px;padding:12px 16px 10px}
 .badge .p{font-family:var(--latin);font-size:min(52px,13vw);line-height:.95}
 .badge small{font-size:17px}
-.badge .bp svg{width:14px;height:14px;fill:#fff;align-self:flex-start;margin-top:4px}
-/* the sale wordmark sits in a red block at the end of the band, like the site's announcement bar */
-.badge .silband{background:var(--g-red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 14px;margin:4px;flex:none;font-family:var(--latin);letter-spacing:.16em;font-size:13px;line-height:1.25;text-align:center}
+.badge .bp svg{width:14px;height:14px;fill:var(--gold);align-self:flex-start;margin-top:4px}
+/* the sale wordmark sits in a gold block at the end of the band, in the newsletter's heavy grotesk */
+.badge .silband{background:var(--gold);color:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 14px;margin:4px;flex:none;font-family:var(--he);font-weight:900;letter-spacing:.04em;font-size:15px;line-height:1.05;text-align:center}
 .badge.in{animation:drop .55s cubic-bezier(.2,1.5,.4,1) forwards}
 @keyframes drop{0%{opacity:0;transform:translateY(-14px) scaleY(.6)}100%{opacity:1;transform:none}}
 .meta{padding:8px 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
 .meta h1{margin:0;font-weight:400;font-size:22px;line-height:1.2;min-width:0}
 .meta .sku{display:block;font-size:13px;color:var(--taupe);margin-top:2px}
 .price{text-align:left;white-space:nowrap}
-.price s{display:block;color:var(--taupe);font-size:17px;text-decoration:line-through;text-decoration-color:#a21a16;text-decoration-thickness:2px}
-.price b{color:var(--g-red);font-family:var(--he);font-weight:700;font-size:34px;line-height:1.05}
+.price s{display:block;color:var(--taupe);font-size:17px;text-decoration:line-through;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.price b{color:var(--gold);font-family:var(--he);font-weight:700;font-size:34px;line-height:1.05}
 .done{margin-top:8px;display:flex;flex-direction:column;gap:8px}
 .done .btn{padding-block:13px}
 .badge .bp{min-width:0}
 @media (max-width:370px){.badge .silband{padding:0 8px;font-size:11px;letter-spacing:.1em}.badge .bp{gap:6px;padding-inline:12px}}
 @media (max-height:640px){.verdict p{display:none}.meta h1{font-size:19px}.price b{font-size:28px}.badge .bp{padding:8px 14px 6px}.badge .p{font-size:40px}}
 .verdict{display:flex;gap:10px;align-items:flex-start}
-.verdict svg{width:18px;height:18px;flex:none;margin-top:5px}
+.verdict svg{width:18px;height:18px;flex:none;margin-top:5px;fill:var(--gold)}
 .verdict h2{margin:0;font-size:20px;font-weight:500;line-height:1.25}
 .verdict p{margin:2px 0 0;color:var(--ink2);font-size:15px}
 .acts{display:grid;grid-template-columns:1fr auto;gap:8px}
-.btn{border:1px solid var(--ink);background:var(--ink);color:#fff;padding:15px 12px;font-size:16px;font-weight:500;border-radius:0}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--black);padding:15px 12px;font-size:16px;font-weight:500;border-radius:0}
 .btn.line{background:var(--paper);color:var(--ink);display:flex;align-items:center;gap:6px;padding-inline:16px}
-.btn.line[aria-pressed=true]{background:var(--sand)}
-.btn.line svg{width:14px;height:14px}
-.wa{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:11px 12px;font-size:15px;text-decoration:none}
+.btn.line[aria-pressed=true]{background:var(--sand);border-color:var(--gold);color:var(--gold)}
+.btn.line svg{width:14px;height:14px;fill:currentColor}
+.wa{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--sand);color:var(--ink);padding:11px 12px;font-size:15px;text-decoration:none}
 .wa svg{width:20px;height:20px;flex:none}
 .wa{white-space:nowrap;font-size:min(15px,4.1vw)}
 .link{display:block;margin:4px auto 0;padding:12px 8px;border:0;background:none;font-size:14px;color:var(--taupe);text-decoration:underline;text-underline-offset:3px}
@@ -115,7 +123,7 @@ bdi{unicode-bidi:isolate}
 .q-head .q-so{width:min(150px,38vw);height:auto;display:block}
 .q-head .chip{border:1px solid var(--line)}
 /* the jewel is never cropped: it sits whole (contain) on a soft blur of its own photo */
-.q-photo{position:relative;flex:1 1 auto;min-height:0;background:#f4f2ef;overflow:hidden}
+.q-photo{position:relative;flex:1 1 auto;min-height:0;background:var(--card);overflow:hidden}
 .blur{position:absolute;inset:-24px;width:calc(100% + 48px);height:calc(100% + 48px);object-fit:cover;filter:blur(22px);opacity:.55;transform:scale(1.1)}
 .q-photo #qImg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .q-ask{flex:none;text-align:center;padding:12px 16px 10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -136,32 +144,34 @@ bdi{unicode-bidi:isolate}
 .chip{background:var(--paper);border:0;padding:8px 12px;font-size:14px;min-height:40px;display:flex;align-items:center;gap:6px}
 .shatter{position:absolute;inset:0;display:grid;gap:3px;background:var(--paper)}
 .shatter i{display:grid;place-items:center;transition:transform .55s cubic-bezier(.5,0,.75,0),opacity .55s;will-change:transform}
-.shatter i svg{width:38%;height:38%;fill:#fff}
-.shatter i.lt svg{fill:var(--ink)}
+.shatter i svg{width:38%;height:38%;fill:var(--gold)}
+.shatter i.lt svg{fill:var(--black)}
 .shatter i.out{transform:scale(0) rotate(90deg);opacity:0}
 .play.clear{background:transparent}.play.clear .shatter{background:transparent}
 
 /* bag */
-.bag{position:fixed;left:0;right:0;bottom:0;padding-top:10px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(rgba(255,255,255,0),var(--paper) 35%);display:flex;justify-content:center;pointer-events:none;z-index:5}
-.bag button{pointer-events:auto;width:100%;max-width:408px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--ink);padding:12px 16px;font-size:15px}
+.bag{position:fixed;left:0;right:0;bottom:0;padding-top:10px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:linear-gradient(rgba(28,27,33,0),var(--paper) 35%);display:flex;justify-content:center;pointer-events:none;z-index:5}
+.bag button{pointer-events:auto;width:100%;max-width:408px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--sand);border:1px solid var(--gold);padding:12px 16px;font-size:15px}
 .bag .sq{display:inline-flex;gap:3px;margin-left:8px}.bag .sq i{width:6px;height:6px;display:block}
 .bag b{font-weight:500}
-.sheet{position:fixed;inset:0;background:rgba(28,28,28,.45);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.bag button{font-size:min(15px,4vw)}.bag button>span{white-space:nowrap}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;justify-content:center;z-index:20}
 .sheet .in{width:100%;max-width:440px;max-height:88%;overflow:auto;background:var(--paper);padding-top:20px;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:12px;border-top:4px solid;border-image:linear-gradient(90deg,var(--g-blue) 25%,var(--g-red) 25% 50%,var(--g-yellow) 50% 75%,var(--g-green) 75%) 1}
 .sheet h2{margin:0;font-weight:400;font-size:22px}
 .sheet .sub{margin:-8px 0 0;color:var(--taupe);font-size:14px}
 .items{list-style:none;margin:0;padding:0}
 .items li{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
-.items img{width:52px;height:52px;object-fit:cover;background:var(--sand)}
+.items img{width:52px;height:52px;object-fit:contain;background:var(--card)}
 .items .nm{min-width:0;font-size:15px}
 .items .nm small{display:block;color:var(--taupe);font-size:13px}
 .items .pr{text-align:left;white-space:nowrap}
-.items .pr s{display:block;color:var(--taupe);font-size:13px;text-decoration-color:#a21a16;text-decoration-thickness:2px}
-.items .pr b{color:var(--g-red);font-weight:700;font-size:19px}
-.off{display:inline-block;background:var(--ink);color:#fff;font-family:var(--latin);font-size:13px;padding:0 5px;margin-inline-start:8px}
+.items .pr s{display:block;color:var(--taupe);font-size:13px;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.items .pr b{color:var(--gold);font-weight:700;font-size:19px}
+/* .off also carries .num (direction:ltr), so a logical margin lands on the wrong side: physical right margin */
+.off{display:inline-block;background:var(--gold);color:var(--black);font-family:var(--latin);font-size:13px;padding:0 5px;margin-right:8px}
 .tot{display:flex;justify-content:space-between;align-items:baseline;font-size:17px}
 .tot b{font-family:var(--latin);font-weight:400;font-size:24px}
-.tot.sv{color:#1e7e34;font-size:15px}
+.tot.sv{color:var(--gold);font-size:15px}
 .fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
 @media (prefers-reduced-motion:reduce){.badge.in{animation:none;transform:none;opacity:1}.shatter i{transition:opacity .2s}.shatter i.out{transform:none}}
 </style>
@@ -173,10 +183,11 @@ bdi{unicode-bidi:isolate}
 <div class="app">
   <section id="home">
     <header class="lock">
-      <img class="so" src="img/so-logo.png" alt="Shlomit Ofir">
+      <img class="so" src="img/so-logo-w.png" alt="Shlomit Ofir">
     </header>
+    <img class="kv" src="img/bf-kv.jpg" alt="">
     <div class="hero">
-      <div class="ev"><span class="dots"><i style="background:var(--g-blue)"></i><i style="background:var(--g-red)"></i><i style="background:var(--g-yellow)"></i><i style="background:var(--g-green)"></i></span><span>מבצעי נובמבר בסניף</span><span class="nov">NOVEMBER SALE</span></div>
+      <p class="bfw" aria-label="Black Friday"><span>BLACK</span><span>FRIDAY</span><span class="cm">+ CYBER MONDAY</span></p>
       <h1>מה הסוד של <b>התכשיט שלך?</b></h1>
       <p class="lead" id="lead"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#spark"/></svg><strong>גלי מה ההנחה על התכשיט שאהבת</strong></p>
       <div class="find" id="find">
@@ -196,9 +207,9 @@ bdi{unicode-bidi:isolate}
   <section id="item" hidden>
     <div class="top">
       <button class="back" id="back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>תכשיט אחר</button>
-      <img class="so" src="img/so-logo.png" alt="Shlomit Ofir">
+      <img class="so" src="img/so-logo-w.png" alt="Shlomit Ofir">
     </div>
-    <div class="badge" id="badge"><span class="bp"><svg viewBox="0 0 24 24"><use href="#spark"/></svg><span class="p num" id="bPct"></span><small>הנחה</small></span><span class="silband"><span>NOVEMBER</span><span>SALE</span></span></div>
+    <div class="badge" id="badge"><span class="bp"><svg viewBox="0 0 24 24"><use href="#spark"/></svg><span class="p num" id="bPct"></span><small>הנחה</small></span><span class="silband"><span>BLACK</span><span>FRIDAY</span></span></div>
     <div class="stage">
       <img class="blur" id="iBg" alt="">
       <img id="iImg" alt="">
@@ -222,7 +233,7 @@ bdi{unicode-bidi:isolate}
 <div class="play" id="play" hidden>
   <div class="q-main" id="qMain">
     <div class="q-head" id="qTop">
-      <img class="q-so" src="img/so-logo.png" alt="Shlomit Ofir">
+      <img class="q-so" src="img/so-logo-w.png" alt="Shlomit Ofir">
       <button class="chip" id="qBack"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>חזרה</button>
     </div>
     <div class="q-photo"><img class="blur" id="qBg" alt=""><img id="qImg" alt=""></div>
@@ -232,7 +243,7 @@ bdi{unicode-bidi:isolate}
   <div class="shatter" id="shatter" hidden></div>
 </div>
 
-<div class="bag" id="bag" hidden><button id="bagBtn"><span><span class="sq"><i style="background:var(--g-blue)"></i><i style="background:var(--g-red)"></i><i style="background:var(--g-yellow)"></i></span><b>שמרת <span class="num" id="bN"></span></b> · להציג בקופה</span><span>הנחה <b class="num" id="bS"></b></span></button></div>
+<div class="bag" id="bag" hidden><button id="bagBtn"><span><span class="sq"><i style="background:var(--gold)"></i><i style="background:var(--ink)"></i><i style="background:var(--gold)"></i></span><b>שמרת <span class="num" id="bN"></span></b> · להציג בקופה</span><span>הנחה <b class="num" id="bS"></b></span></button></div>
 
 <div class="sheet" id="sheet" hidden>
   <div class="in" role="dialog" aria-modal="true" aria-labelledby="shT">
@@ -240,7 +251,7 @@ bdi{unicode-bidi:isolate}
     <p class="sub">להציג למוכרת בקופה</p>
     <ul class="items" id="items"></ul>
     <div class="tot"><span>מחיר במבצע</span><b class="num" id="tP"></b></div>
-    <div class="tot sv"><span>הנחת נובמבר</span><span class="num" id="tS"></span></div>
+    <div class="tot sv"><span>הנחת בלאק פריידי</span><span class="num" id="tS"></span></div>
     <button class="btn" id="shClose">סגירה</button>
     <button class="link" id="shClear">לנקות את הרשימה</button>
   </div>
@@ -252,7 +263,8 @@ fetch('data.json').then(r=>{if(!r.ok)throw new Error('data '+r.status);return r.
 const $=id=>document.getElementById(id);
 const nis=n=>'₪'+(Math.round(n*100)/100).toLocaleString('he-IL',{maximumFractionDigits:2});
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const G=['#252525','#a21a16','#d6e1f4','#79879d'];
+// black, gold, photo-card white, charcoal: the key visual's wall, its jewels and the site's product cards
+const G=['#0f0f12','#c9a66b','#f4f2ef','#3a3c42'];
 const GUESS=[10,20,30,40];
 const DIRECT=true;
 const STANDS={earrings:'עגילים',necklaces:'שרשראות',bracelets:'צמידים',rings:'טבעות',charms:"צ'ארמס"};
@@ -279,15 +291,18 @@ function cellURL(it){
 const BLANK='img/so-logo.png';
 function setImg(el,it){el.removeAttribute('src');if(!it.i){el.src=BLANK;el.dataset.n=it.n;return;}cellURL(it).then(u=>{if(el.dataset.n==String(it.n))el.src=u;});el.dataset.n=it.n;}
 
-let bag=[];try{bag=JSON.parse(localStorage.getItem('nov-bag-live')||'[]').filter(k=>BY_SKU[k])}catch(e){}
-const store=()=>{try{localStorage.setItem('nov-bag-live',JSON.stringify(bag))}catch(e){}};
+let bag=[];try{bag=JSON.parse(localStorage.getItem('bf-bag-live')||'[]').filter(k=>BY_SKU[k])}catch(e){}
+const store=()=>{try{localStorage.setItem('bf-bag-live',JSON.stringify(bag))}catch(e){}};
 
 // ---- after the sale ends, the page stops showing prices ----
 const ended=Date.now()>Date.parse(DATA.endsAt);
 const pulled=new Date(DATA.pulledAt);
 $('stamp').textContent='המחיר הקובע הוא המחיר בקופה · מחירים מ-'+pulled.toLocaleDateString('he-IL',{day:'numeric',month:'numeric'})+', '+pulled.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
-if(ended){$('find').hidden=true;$('hint').hidden=true;document.querySelector('.shelf').hidden=true;$('lead').innerHTML='<strong>מבצעי נובמבר הסתיימו. תודה שבאת! המוכרות ישמחו לעזור עם כל תכשיט 🤍</strong>';$('q').disabled=true;}
-$('q').disabled=ended;$('q').placeholder='מק״ט או שם התכשיט';
+if(ended){$('find').hidden=true;$('hint').hidden=true;document.querySelector('.shelf').hidden=true;$('lead').innerHTML='<strong>בלאק פריידי הסתיים. תודה שבאת! המוכרות ישמחו לעזור עם כל תכשיט</strong>';$('q').disabled=true;}
+// ---- before the sale starts (19/11 00:00 Israel), no prices either: the page went public on 18/11 ----
+const notYet=Date.now()<Date.parse('2026-11-19T00:00:00+02:00');
+if(notYet){$('find').hidden=true;$('hint').hidden=true;document.querySelector('.shelf').hidden=true;$('stamp').hidden=true;$('lead').innerHTML='<strong>בלאק פריידי מתחיל מחר, 19/11. נתראה!</strong>';$('q').disabled=true;}
+$('q').disabled=ended||notYet;$('q').placeholder='מק״ט או שם התכשיט';
 
 // ---- home ----
 const stand=STANDS[location.hash.slice(1)];
@@ -312,7 +327,8 @@ const resetHint=()=>{$('hint').innerHTML=HINT;$('hint').hidden=false;};
 // 7 digits without a suffix match every variant of that design.
 function search(raw){
   const v=norm(raw),q=skuNorm(v),d=v.replace(/\D/g,'');
-  if(d.length>=3&&q.length>=v.replace(/[\s-]/g,'').length)
+  // a dot counts as a separator too: ring sizes like 1412432-4.5 (18/11, the harness found it unreachable)
+  if(d.length>=3&&q.length>=v.replace(/[\s.-]/g,'').length)
     // the exact SKU goes first: 1125703-S is also the start of 1125703-S-1..S-10, and typing more can't narrow to it
     return VARS.filter(p=>p.skuN.startsWith(q)||(/^\d+$/.test(q)&&p.digits.startsWith(q))||(q.length>7&&q.startsWith(p.skuN)))
       .sort((a,b)=>(b.skuN===q)-(a.skuN===q));
@@ -354,8 +370,8 @@ function home(){$('play').hidden=true;$('item').hidden=true;$('home').hidden=fal
 $('qBack').onclick=$('back').onclick=$('next').onclick=home;
 $('qSkip').onclick=()=>go(null,-1);
 
-const PAL=[...G,...G,'#9fa0b2','#f7f6f5','#4d4d4d'];
-const LIGHT=c=>c==='#d6e1f4'||c==='#9fa0b2'||c==='#f7f6f5';
+const PAL=[...G,...G,'#26252c','#303338','#e3c792'];
+const LIGHT=c=>c==='#f4f2ef'||c==='#c9a66b'||c==='#e3c792';
 const ICON=['<svg viewBox="0 0 24 24"><use href="#spark"/></svg>','<svg viewBox="0 0 24 24"><text x="12" y="19" text-anchor="middle" font-family="Tenor Sans,serif" font-size="20">%</text></svg>'];
 function paint(t,c){t.style.backgroundColor=c;t.classList.toggle('lt',LIGHT(c));}
 
@@ -399,7 +415,7 @@ function land(guess){
   let t,x;
   if(!p.pct){t='הוא לא במבצע הפעם';x='יש עוד הרבה על השולחן שכן.';}
   // owner, 10/11: no money-saving verbs (saving / paying) — the reveal speaks about the jewel and its sale price, not about saving money
-  else if(guess===null){t='שלך במחיר נובמבר';x=p.pct+'% הנחה על התכשיט הזה, במחיר '+nis(p.sale)+'.';}
+  else if(guess===null){t='שלך במחיר בלאק פריידי';x=p.pct+'% הנחה על התכשיט הזה, במחיר '+nis(p.sale)+'.';}
   else if(hit){t='בול! יש לך עין של מעצבת';x=p.pct+'% הנחה על התכשיט הזה, במחיר '+nis(p.sale)+'.';}
   else if(p.pct>guess){t='הפתעה! יותר ממה שחשבת';x='ניחשת '+guess+'%, וזה '+p.pct+'%.';}
   else{t='כמעט!';x='זה '+p.pct+'% הנחה, במחיר '+nis(p.sale)+'.';}
@@ -412,16 +428,16 @@ $('keep').onclick=()=>{if(!bag.includes(cur.key)){bag.push(cur.key);store();rend
 // WhatsApp: the friend is not in the store, so the link goes to the product page on the site (WhatsApp shows its photo),
 // tagged so sales from these shares can be counted. The price is phrased as the store price, not a promise for the site.
 function shareText(p){
-  const url='https://shlomitofir.co.il/'+(p.it.o?'products/'+encodeURIComponent(p.h):'')+'?utm_source=whatsapp&utm_medium=store_share&utm_campaign=november_sale_2026';
-  const line=p.pct?p.title+' של שלומית אופיר, ב-'+nis(p.sale)+' במקום '+nis(p.full)+' כאן בסניף, במבצעי נובמבר.':p.title+' של שלומית אופיר.';
-  return (p.pct?'מבצעים לא שומרים בסוד 🤍':'תראי מה מצאתי 🤍')+'\n'+line+'\n'+url;
+  const url='https://shlomitofir.co.il/'+(p.it.o?'products/'+encodeURIComponent(p.h):'')+'?utm_source=whatsapp&utm_medium=store_share&utm_campaign=black_friday_2026';
+  const line=p.pct?p.title+' של שלומית אופיר, ב-'+nis(p.sale)+' במקום '+nis(p.full)+' כאן בסניף, בבלאק פריידי.':p.title+' של שלומית אופיר.';
+  return (p.pct?'מבצעים לא שומרים בסוד 🖤':'תראי מה מצאתי 🖤')+'\n'+line+'\n'+url;
 }
 function buzz(v){try{navigator.vibrate&&navigator.vibrate(v)}catch(e){}}
 
 // ---- bag ----
 function renderBag(){
   const it=bag.map(k=>BY_SKU[k]).filter(Boolean),pay=it.reduce((s,p)=>s+p.sale,0),sv=it.reduce((s,p)=>s+p.full-p.sale,0);
-  $('bag').hidden=!it.length;document.documentElement.style.setProperty('--bagH',it.length?'70px':'0px');$('bN').textContent=it.length;$('bS').textContent=nis(sv);$('tP').textContent=nis(pay);$('tS').textContent=nis(sv);
+  $('bag').hidden=!it.length;document.documentElement.style.setProperty('--bagH',it.length?Math.max(70,$('bag').offsetHeight)+'px':'0px');$('bN').textContent=it.length;$('bS').textContent=nis(sv);$('tP').textContent=nis(pay);$('tS').textContent=nis(sv);
   const ul=$('items');ul.innerHTML='';
   it.forEach(p=>{const li=document.createElement('li');
     li.innerHTML='<img alt=""><div class="nm"><span></span><small>מק״ט <bdi></bdi>'+(p.pct?'<span class="off num">-'+p.pct+'%</span>':'')+'</small></div><div class="pr">'+(p.pct?'<s class="num">'+nis(p.full)+'</s>':'')+'<b class="num">'+nis(p.sale)+'</b></div>';
@@ -439,22 +455,25 @@ const SPARK=new Path2D('M12 0C12.7 6.8 17.2 11.3 24 12C17.2 12.7 12.7 17.2 12 24
 const HEART=new Path2D('M12 21C5 15.5 1 11.8 1 7.5 1 4.4 3.4 2 6.4 2c2.2 0 3.9 1.2 5.6 3.3C13.7 3.2 15.4 2 17.6 2 20.6 2 23 4.4 23 7.5c0 4.3-4 8-11 13.5z');
 const GEM=new Path2D('M6 3h12l5 6-11 13L1 9z');
 const GEMF=new Path2D('M1 9h22M6 3l3 6 3-6 3 6 3-6M9 9l3 13 3-13');
-const GOLD=['#d8b064','#c99a4a','#f1d48a'],INK='#1c1c1c',SAND='#c2af9e';
+// on the dark page the "ink" pieces are light: white and champagne, never black on black
+const GOLD=['#d8b064','#c99a4a','#f1d48a'],INK='#f4f2ef',SAND='#c2af9e';
 const rnd=(a,b)=>a+Math.random()*(b-a),pick=a=>a[(Math.random()*a.length)|0];
 const W_=()=>innerWidth,H_=()=>innerHeight;
 function stageC(){const s=document.querySelector('.stage').getBoundingClientRect();return {x:s.left+s.width/2,y:s.top+s.height/2,w:s.width,h:s.height};}
-function add(o){parts.push(Object.assign({x:0,y:0,vx:0,vy:0,g:.24,drag:.982,r:rnd(0,6),vr:rnd(-.2,.2),s:8,col:pick(G),shape:'rect',life:0,max:170,a:1},o));}
+// confetti never uses the near-black tile color: it would vanish on the dark page
+const CG=['#c9a66b','#f4f2ef','#e3c792','#8d8f96'];
+function add(o){parts.push(Object.assign({x:0,y:0,vx:0,vy:0,g:.24,drag:.982,r:rnd(0,6),vr:rnd(-.2,.2),s:8,col:pick(CG),shape:'rect',life:0,max:170,a:1},o));}
 const SHAPES_MIX=['rect','rect','rect','spark','heart','ring','pearl','gem'];
-function mixed(){const sh=pick(SHAPES_MIX);return {shape:sh,col:sh==='spark'?pick([INK,SAND,...GOLD]):sh==='ring'?pick(GOLD):sh==='heart'?pick(['#a21a16','#f28b9b',INK]):sh==='gem'?pick(['#bfe3ff','#ffffff','#f6d6ff','#d3f4e1']):pick(G),s:sh==='rect'?rnd(5,11):rnd(10,20)};}
+function mixed(){const sh=pick(SHAPES_MIX);return {shape:sh,col:sh==='spark'?pick([INK,SAND,...GOLD]):sh==='ring'?pick(GOLD):sh==='heart'?pick(['#c9a66b','#f1d48a',INK]):sh==='gem'?pick(['#bfe3ff','#ffffff','#f6d6ff','#d3f4e1']):pick(CG),s:sh==='rect'?rnd(5,11):rnd(10,20)};}
 const MODES=[
   function boom(m){const o=stageC();for(let i=0;i<170*m;i++){const a=rnd(0,Math.PI*2),v=rnd(3,13);add(Object.assign(mixed(),{x:o.x,y:o.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-7}));}},
   function jewelRain(m){for(let i=0;i<170*m;i++){const sh=pick(['ring','ring','pearl','pearl','gem','spark']);add({shape:sh,col:sh==='ring'?pick(GOLD):sh==='gem'?pick(['#bfe3ff','#ffffff','#f6d6ff']):sh==='spark'?pick(GOLD):'#fff',x:rnd(0,W_()),y:rnd(-H_()*.8,-20),vx:rnd(-.6,.6),vy:rnd(2,4.5),g:.06,drag:.995,s:rnd(12,24),max:300});}},
-  function fireworks(m){const o=stageC();const pts=[[o.x-o.w*.25,o.y-o.h*.25],[o.x+o.w*.28,o.y-o.h*.1],[o.x,o.y+o.h*.2],[o.x-o.w*.1,o.y-o.h*.4]];pts.forEach((pt,k)=>setTimeout(()=>{const col=G[k%4],n=60*m;for(let i=0;i<n;i++){const a=i/n*Math.PI*2,v=rnd(3.5,6);const sp=Math.random()<.25;add({shape:sp?'spark':'dot',col:Math.random()<.3?pick(GOLD):col,x:pt[0],y:pt[1],vx:Math.cos(a)*v,vy:Math.sin(a)*v,g:.07,drag:.955,s:sp?rnd(9,14):rnd(2,3.5),max:rnd(80,120)});}ensure();buzz(10);},k*260));},
-  function cannons(m){const W=W_(),H=H_();[[0,1],[W,-1]].forEach(([x0,dir])=>{for(let i=0;i<110*m;i++){const a=rnd(-1.25,-.85),v=rnd(14,24);const st=Math.random()<.3;add(Object.assign(st?{shape:'streamer',col:pick(G),s:rnd(18,30)}:mixed(),{x:x0,y:H-10,vx:Math.cos(a)*v*dir*.55,vy:Math.sin(a)*v,g:.32,drag:.985,max:200}));}});},
-  function twinkle(m){const o=stageC();for(let i=0;i<90*m;i++){add({shape:'spark',col:pick([INK,SAND,...GOLD,...G]),x:o.x+rnd(-o.w*.6,o.w*.6),y:o.y+rnd(-o.h*.65,o.h*.75),g:0,drag:1,vr:0,r:0,s:rnd(8,26),life:-((Math.random()*60)|0),max:rnd(50,80),tw:1});}},
-  function tiles(m){for(let i=0;i<75*m;i++){add({shape:'tile',col:pick(G),x:rnd(0,W_()),y:rnd(-H_()*.7,-30),vx:rnd(-.8,.8),vy:rnd(1.5,3.5),g:.05,drag:.995,s:rnd(16,30),vr:rnd(-.05,.05),max:320});}},
-  function hearts(m){const W=W_(),H=H_();for(let i=0;i<70*m;i++){add({shape:'heart',col:pick(['#a21a16','#f28b9b','#f6b6c2',INK,'#d8b064']),x:rnd(W*.1,W*.9),y:H+rnd(10,H*.5),vx:rnd(-.5,.5),vy:rnd(-5,-2.5),g:-.01,drag:.995,s:rnd(14,28),vr:rnd(-.02,.02),r:rnd(-.3,.3),max:320,wob:rnd(0,6)});}},
-  function signs(m){for(let i=0;i<90*m;i++){add({shape:'text',txt:pick(['%','%','₪','✦']),col:pick([...G,INK]),x:rnd(0,W_()),y:rnd(-H_()*.7,-20),vx:rnd(-.6,.6),vy:rnd(2,4),g:.07,drag:.995,s:rnd(18,34),vr:rnd(-.06,.06),max:300});}},
+  function fireworks(m){const o=stageC();const pts=[[o.x-o.w*.25,o.y-o.h*.25],[o.x+o.w*.28,o.y-o.h*.1],[o.x,o.y+o.h*.2],[o.x-o.w*.1,o.y-o.h*.4]];pts.forEach((pt,k)=>setTimeout(()=>{const col=CG[k%4],n=60*m;for(let i=0;i<n;i++){const a=i/n*Math.PI*2,v=rnd(3.5,6);const sp=Math.random()<.25;add({shape:sp?'spark':'dot',col:Math.random()<.3?pick(GOLD):col,x:pt[0],y:pt[1],vx:Math.cos(a)*v,vy:Math.sin(a)*v,g:.07,drag:.955,s:sp?rnd(9,14):rnd(2,3.5),max:rnd(80,120)});}ensure();buzz(10);},k*260));},
+  function cannons(m){const W=W_(),H=H_();[[0,1],[W,-1]].forEach(([x0,dir])=>{for(let i=0;i<110*m;i++){const a=rnd(-1.25,-.85),v=rnd(14,24);const st=Math.random()<.3;add(Object.assign(st?{shape:'streamer',col:pick(CG),s:rnd(18,30)}:mixed(),{x:x0,y:H-10,vx:Math.cos(a)*v*dir*.55,vy:Math.sin(a)*v,g:.32,drag:.985,max:200}));}});},
+  function twinkle(m){const o=stageC();for(let i=0;i<90*m;i++){add({shape:'spark',col:pick([INK,SAND,...GOLD,...CG]),x:o.x+rnd(-o.w*.6,o.w*.6),y:o.y+rnd(-o.h*.65,o.h*.75),g:0,drag:1,vr:0,r:0,s:rnd(8,26),life:-((Math.random()*60)|0),max:rnd(50,80),tw:1});}},
+  function tiles(m){for(let i=0;i<75*m;i++){add({shape:'tile',col:pick(CG),x:rnd(0,W_()),y:rnd(-H_()*.7,-30),vx:rnd(-.8,.8),vy:rnd(1.5,3.5),g:.05,drag:.995,s:rnd(16,30),vr:rnd(-.05,.05),max:320});}},
+  function hearts(m){const W=W_(),H=H_();for(let i=0;i<70*m;i++){add({shape:'heart',col:pick(['#c9a66b','#f1d48a',INK,'#d8b064','#e3c792']),x:rnd(W*.1,W*.9),y:H+rnd(10,H*.5),vx:rnd(-.5,.5),vy:rnd(-5,-2.5),g:-.01,drag:.995,s:rnd(14,28),vr:rnd(-.02,.02),r:rnd(-.3,.3),max:320,wob:rnd(0,6)});}},
+  function signs(m){for(let i=0;i<90*m;i++){add({shape:'text',txt:pick(['%','%','₪','✦']),col:pick([...CG,INK]),x:rnd(0,W_()),y:rnd(-H_()*.7,-20),vx:rnd(-.6,.6),vy:rnd(2,4),g:.07,drag:.995,s:rnd(18,34),vr:rnd(-.06,.06),max:300});}},
   function gems(m){const o=stageC();for(let i=0;i<80*m;i++){const a=rnd(0,Math.PI*2),v=rnd(4,12);add({shape:Math.random()<.7?'gem':'spark',col:pick(['#bfe3ff','#ffffff','#f6d6ff','#d3f4e1','#fff1b8']),x:o.x,y:o.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-6,s:rnd(14,26),max:190});}}
 ];
 function celebrate(big){
