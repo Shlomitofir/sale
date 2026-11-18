@@ -300,7 +300,7 @@ const pulled=new Date(DATA.pulledAt);
 $('stamp').textContent='המחיר הקובע הוא המחיר בקופה · מחירים מ-'+pulled.toLocaleDateString('he-IL',{day:'numeric',month:'numeric'})+', '+pulled.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'});
 if(ended){$('find').hidden=true;$('hint').hidden=true;document.querySelector('.shelf').hidden=true;$('lead').innerHTML='<strong>בלאק פריידי הסתיים. תודה שבאת! המוכרות ישמחו לעזור עם כל תכשיט</strong>';$('q').disabled=true;}
 // ---- before the sale starts (19/11 00:00 Israel), no prices either: the page went public on 18/11 ----
-const notYet=Date.now()<Date.parse('2026-11-19T00:00:00+02:00');
+const notYet=Date.now()<Date.parse('2026-11-18T00:00:00+02:00');
 if(notYet){$('find').hidden=true;$('hint').hidden=true;document.querySelector('.shelf').hidden=true;$('stamp').hidden=true;$('lead').innerHTML='<strong>בלאק פריידי מתחיל מחר, 19/11. נתראה!</strong>';$('q').disabled=true;}
 $('q').disabled=ended||notYet;$('q').placeholder='מק״ט או שם התכשיט';
 
